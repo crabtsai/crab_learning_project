@@ -31,4 +31,4 @@ if st.button('預測'):
     X=np.array([[total_bill, sex_dict[sex], smoker_dict[smoker], day_dict[day1]
                 , time_dict[time1], size1]])
     X=scaler.transform(X)
-    st.markdown(f'###預測結果： **{clf2.predict(X)[0]:.2f}**')    
+    st.markdown(f'### 預測結果： **{clf2.predict(X)[0]:.2f}**')    
