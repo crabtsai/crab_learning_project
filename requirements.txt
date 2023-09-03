@@ -2,3 +2,6 @@ streamlit
 numpy
 pandas
 scikit-learn
+streamlit-drawable-canvas
+tensorflow-cpu
+scikit-image
