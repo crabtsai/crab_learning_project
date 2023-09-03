@@ -21,7 +21,7 @@ st.set_page_config(
     page_icon="👋",
 )
 
-st.title('Machine Learning 學習歷程')   
+st.title('Crab_Machine Learning 學習歷程')   
 
 col1, col2 = st.columns(2)
 with col1:
