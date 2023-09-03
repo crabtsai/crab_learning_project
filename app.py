@@ -78,7 +78,7 @@ with col3:
     # st.image('taxi.png')
     st.markdown(data_url_3, unsafe_allow_html=True)
 with col4:
-    st.markdown('### [(CNN)神經網路_辨識英文字)(CNN)]')
+    st.markdown('### [(CNN)神經網路_辨識英文字)](CNN)')
     st.markdown('''
     ##### 資料集:
          -EMNIST Letters
