@@ -14,7 +14,7 @@ def get_image_html(page_name, file_name):
 data_url = get_image_html("分類", "./image/iris.png")
 data_url_2 = get_image_html("迴歸", "./image/taxi.png")
 data_url_3 = get_image_html("分類", "./image/breast.jpg")
-data_url_3 = get_image_html("CNN辨識英文字母", "./image/ABC.png")
+data_url_3 = get_image_html("CNN辨識英文字母", "./image/ABC.PNG")
 
 st.set_page_config(
     page_title="我的學習歷程",
