@@ -14,7 +14,7 @@ def get_image_html(page_name, file_name):
 data_url = get_image_html("分類", "./image/iris.png")
 data_url_2 = get_image_html("迴歸", "./image/taxi.png")
 data_url_3 = get_image_html("分類", "./image/breast.jpg")
-data_url_3 = get_image_html("CNN辨識英文字母", "./image/ABC.PNG")
+data_url_4 = get_image_html("CNN辨識英文字母", "./image/ABC.PNG")
 
 st.set_page_config(
     page_title="我的學習歷程",
@@ -23,7 +23,7 @@ st.set_page_config(
 
 st.title('Machine Learning 學習歷程')   
 
-col1, col2 , col3, col4 = st.columns(4)
+col1, col2 , col3, col4 = st.columns[(2, 2)]
 with col1:
     # url must be external url instead of local file
     # st.markdown(f"### [![分類]({url})](分類)")
