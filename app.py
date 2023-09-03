@@ -23,7 +23,7 @@ st.set_page_config(
 
 st.title('Machine Learning 學習歷程')   
 
-col1, col2 , col3, col4 = st.columns(4,gap="small")
+col1, col2 = st.columns(2)
 with col1:
     # url must be external url instead of local file
     # st.markdown(f"### [![分類]({url})](分類)")
@@ -57,6 +57,7 @@ with col2:
         ''')
     # st.image('taxi.png')
     st.markdown(data_url_2, unsafe_allow_html=True)
+col3, col4 = st.columns(2)
 with col3:
     st.markdown('### [(分類)乳房預測](分類)')
     st.markdown('''
