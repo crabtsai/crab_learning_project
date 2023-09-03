@@ -59,7 +59,7 @@ with col2:
     st.markdown(data_url_2, unsafe_allow_html=True)
 col3, col4 = st.columns(2)
 with col3:
-    st.markdown('### [(分類)乳房預測](分類)')
+    st.markdown('### [(分類)乳癌腫瘤預測](分類)')
     st.markdown('''
     ##### 特徵(X):
                 #Breast cancer wisconsin (diagnostic) dataset#
@@ -78,7 +78,7 @@ with col3:
     # st.image('taxi.png')
     st.markdown(data_url_3, unsafe_allow_html=True)
 with col4:
-    st.markdown('### [(CNN)神經網路_辨識英文字)](CNN)')
+    st.markdown('### [(CNN)神經網路_辨識英文字母)](CNN)')
     st.markdown('''
     ##### 資料集:
          -EMNIST Letters
