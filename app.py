@@ -23,7 +23,7 @@ st.set_page_config(
 
 st.title('Machine Learning 學習歷程')   
 
-col1, col2 , col3, col4 = st.columns[(2, 2)]
+col1, col2 , col3, col4 = st.columns([2, 2])
 with col1:
     # url must be external url instead of local file
     # st.markdown(f"### [![分類]({url})](分類)")
