@@ -30,4 +30,4 @@ if st.button('預測'):
     X=np.array([[island_dict[island], bill_length, bill_depth, flipper_length,
                  body_mass, sex_dict[sex]]])
     X=scaler.transform(X)
-    st.markdown(f'預測結果： **{y_dict[int(clf2.predict(X))]}**')    
+    st.markdown(f'### 預測結果： **{y_dict[int(clf2.predict(X))]}**')    
