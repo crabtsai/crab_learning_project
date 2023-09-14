@@ -7,7 +7,7 @@ clf = joblib.load('./model/model_spaceship.joblib')
 scaler = joblib.load('./model/scaler_spaceship.joblib')
 st.title('太空船難預測')
 #太空船難檢測參數
-age = st.slider('age:', min_value=0, max_value=79, value=18.0)
+Age = st.slider('age:', min_value=0, max_value=79, value=18.0)
 RoomService = st.slider('RoomService:', min_value=0, max_value=14327, value=10000.0)
 FoodCourt = st.slider('FoodCourt:', min_value=0, max_value=29813, value=10000.0)
 ShoppingMall = st.slider('ShoppingMall:', min_value=0, max_value=23492, value=10000.0)
@@ -36,9 +36,9 @@ Family_size = st.slider('Family_size:', min_value=0, max_value=19, value=1.0)
 
 labels = ['死亡', '倖存',]
 if st.button('預測'):
-    X_new = [[PassengerId, HomePlanet, CryoSleep, Destination, Age, VIP,
+    X_new = [[Age,
        RoomService, FoodCourt, ShoppingMall, Spa, VRDeck,
-       Age_group, Expenditure, No_spending, Group, Group_size,
+       Expenditure, No_spending, Group, Group_size,
        Solo, Cabin_deck, Cabin_number, Cabin_side, Cabin_region1,
        Cabin_region2, Cabin_region3, Cabin_region4, Cabin_region5,
        Cabin_region6, Cabin_region7, Family_size]]
