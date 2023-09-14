@@ -33,9 +33,9 @@ Cabin_region5 = st.slider('Cabin_region5:', min_value=0.0, max_value=1.0, value=
 Cabin_region6 = st.slider('Cabin_region6:', min_value=0.0, max_value=1.0, value=0.0)
 Cabin_region7 = st.slider('Cabin_region7:', min_value=0.0, max_value=1.0, value=0.0)
 Family_size = st.slider('Family_size:', min_value=0.0, max_value=19.0, value=1.0)
-
-
-
+Family_size_1 = st.slider('Family_size_1:', min_value=0.0, max_value=19.0, value=1.0)
+Family_size_2 = st.slider('Family_size_2:', min_value=0.0, max_value=19.0, value=1.0)
+Family_size_3 = st.slider('Family_size_3:', min_value=0.0, max_value=19.0, value=1.0)
 
 # PassengerId', 'Group', 'Group_size', 'Age_group', 'Cabin_number
 
@@ -47,7 +47,8 @@ if st.button('預測'):
     Expenditure, No_spending,
     Solo, Cabin_deck, Cabin_side, Cabin_region1,
     Cabin_region2, Cabin_region3, Cabin_region4, Cabin_region5,
-    Cabin_region6, Cabin_region7, Family_size]]
+    Cabin_region6, Cabin_region7, Family_size,
+    Family_size_1,Family_size_2,Family_size_3]]
 
 
     X_new = scaler.fit_transform(X_new)
