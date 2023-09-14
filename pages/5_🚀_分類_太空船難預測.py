@@ -32,13 +32,41 @@ Cabin_region7 = st.slider('Cabin_region7:', min_value=0, max_value=1, value=0)
 Family_size = st.slider('Family_size:', min_value=0, max_value=19, value=1)
 
 labels = ['死亡', '倖存',]
+# if st.button('預測'):
+#     X_new = [[HomePlanet, CryoSleep, Destination, Age, VIP,
+#     RoomService, FoodCourt, ShoppingMall, Spa, VRDeck,
+#     Expenditure, No_spending,
+#     Solo, Cabin_deck, Cabin_side, Cabin_region1,
+#     Cabin_region2, Cabin_region3, Cabin_region4, Cabin_region5,
+#     Cabin_region6, Cabin_region7, Family_size]]
+#     X_new = np.array(X_new)
+#     X_new = scaler.transform(X_new)
+#     st.write('### 預測結果是：', labels[clf.predict(X_new)[0]])
+
+
+import pandas as pd
+
+# ... 其他部分代码不变 ...
+
 if st.button('預測'):
-    X_new = [[HomePlanet, CryoSleep, Destination, Age, VIP,
-    RoomService, FoodCourt, ShoppingMall, Spa, VRDeck,
-    Expenditure, No_spending,
-    Solo, Cabin_deck, Cabin_side, Cabin_region1,
-    Cabin_region2, Cabin_region3, Cabin_region4, Cabin_region5,
-    Cabin_region6, Cabin_region7, Family_size]]
-    X_new = np.array(X_new)
-    X_new = scaler.transform(X_new)
-    st.write('### 預測結果是：', labels[clf.predict(X_new)[0]])
+    data = [[HomePlanet, CryoSleep, Destination, Age, VIP,
+            RoomService, FoodCourt, ShoppingMall, Spa, VRDeck,
+            Expenditure, No_spending,
+            Solo, Cabin_deck, Cabin_side, Cabin_region1,
+            Cabin_region2, Cabin_region3, Cabin_region4, Cabin_region5,
+            Cabin_region6, Cabin_region7, Family_size]]
+    
+    # 将数据转换为 pandas DataFrame
+    columns = ['HomePlanet', 'CryoSleep', 'Destination', 'Age', 'VIP',
+               'RoomService', 'FoodCourt', 'ShoppingMall', 'Spa', 'VRDeck',
+               'Expenditure', 'No_spending', 'Solo', 'Cabin_deck',
+               'Cabin_side', 'Cabin_region1', 'Cabin_region2', 'Cabin_region3',
+               'Cabin_region4', 'Cabin_region5', 'Cabin_region6', 'Cabin_region7', 'Family_size']
+    
+    X_new_df = pd.DataFrame(data, columns=columns)
+    
+    # 使用 DataFrame 进行标准化
+    X_new_scaled = scaler.transform(X_new_df)
+    
+    st.write('### 預測結果是：', labels[clf.predict(X_new_scaled)[0]])
+
