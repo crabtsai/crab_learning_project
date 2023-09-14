@@ -50,6 +50,6 @@ if st.button('預測'):
     Cabin_region6, Cabin_region7, Family_size]]
 
 
-    X_new = scaler.fit.transform(X_new)
+    X_new = scaler.fit_transform(X_new)
 
     st.write('### 預測結果是：', labels[clf.predict(X_new)[0]])
