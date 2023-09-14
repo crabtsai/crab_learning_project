@@ -2,8 +2,8 @@ import streamlit as st
 import joblib
 
 # 載入模型與標準化轉換模型
-clf = joblib.load('./model/model_spaceship.joblib')
-scaler = joblib.load('./model/scaler_spaceship.joblib')
+clf = load('./model/model_spaceship.joblib')
+scaler = load('./model/scaler_spaceship.joblib')
 st.title('太空船難預測')
 #太空船難檢測參數
 age = st.slider('age:', min_value=0, max_value=79, value=18.0)
