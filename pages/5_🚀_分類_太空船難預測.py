@@ -18,7 +18,7 @@ ShoppingMall = st.slider('ShoppingMall:', min_value=0, max_value=23492, value=10
 Spa = st.slider('Spa:', min_value=0, max_value=23492, value=10000)
 VRDeck = st.slider('VRDeck:', min_value=0, max_value=24133, value=10000)
 Expenditure = st.slider('Expenditure:', min_value=0, max_value=35987, value=10000)
-No_spending = st.slider('No_spending:', min_value=0, max_value=1, value=10000)
+No_spending = st.slider('No_spending:', min_value=0, max_value=1, value=1)
 # Group = st.slider('Group:', min_value=1, max_value=9280, value=100)
 # Group_size = st.slider('Group_size:', min_value=1, max_value=8, value=1)
 Solo = st.slider('Solo:', min_value=0, max_value=1, value=1)
