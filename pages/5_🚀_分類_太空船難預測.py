@@ -39,7 +39,7 @@ if st.button('預測'):
     X_new = [[Age,
        RoomService, FoodCourt, ShoppingMall, Spa, VRDeck,
        Expenditure, No_spending, Group, Group_size,
-       Solo, Cabin_deck, Cabin_number, Cabin_side, Cabin_region1,
+       Solo, Cabin_number, Cabin_side, Cabin_region1,
        Cabin_region2, Cabin_region3, Cabin_region4, Cabin_region5,
        Cabin_region6, Cabin_region7, Family_size]]
 
