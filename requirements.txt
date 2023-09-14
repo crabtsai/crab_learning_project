@@ -1,10 +1,11 @@
 streamlit
 streamlit-drawable-canvas
-numpy
-pandas
-scikit-learn
+numpy==1.21.2
+pandas==1.3.3
+scikit-learn==0.24.2
 tensorflow-cpu
 scikit-image
 joblib
 yfinance
 catboost
+
