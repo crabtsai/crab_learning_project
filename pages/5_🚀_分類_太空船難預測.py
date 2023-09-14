@@ -43,13 +43,14 @@ Family_size = float(st.slider('Family_size:', min_value=0.0, max_value=19.0, val
 labels = ['死亡', '倖存',]
 if st.button('預測'):
     X_new = [[HomePlanet, CryoSleep, Destination, Age, VIP,
-       RoomService, FoodCourt, ShoppingMall, Spa, VRDeck,
-        Expenditure, No_spending,
+       RoomService, FoodCourt, ShoppingMall, Spa, VRDeck,Expenditure, No_spending,
        Solo, Cabin_deck, Cabin_side, Cabin_region1,
        Cabin_region2, Cabin_region3, Cabin_region4, Cabin_region5,
        Cabin_region6, Cabin_region7, Family_size]]
 
-
+    print(X_new.type())
+    print(X_new)
+    
     X_new = scaler.fit_transform(X_new)
 
     st.write('### 預測結果是：', labels[clf.predict(X_new)[0]])
