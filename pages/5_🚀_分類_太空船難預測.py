@@ -7,7 +7,7 @@ clf = joblib.load('./model/model_spaceship.joblib')
 scaler = joblib.load('./model/scaler_spaceship.joblib')
 st.title('太空船難預測')
 #太空船難檢測參數
-HomePlanet = float64(st.slider('HomePlanet:', min_value=0.0, max_value=1.0, value=0.0))
+HomePlanet = float(st.slider('HomePlanet:', min_value=0.0, max_value=1.0, value=0.0))
 CryoSleep = st.slider('CryoSleep:', min_value=0.0, max_value=1.0, value=0.0)
 Destination = st.slider('Destination:', min_value=0.0, max_value=1.0, value=0.0)
 Age = st.slider('age:', min_value=0.0, max_value=79.0, value=18.0)
