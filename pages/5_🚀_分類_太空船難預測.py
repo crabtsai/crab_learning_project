@@ -1,10 +1,11 @@
 import streamlit as st
 import joblib
-import numpy as np
-import pandas as pd
+from sklearn.preprocessing import StandardScaler, MinMaxScaler, OneHotEncoder, LabelEncoder
+
+model/model_spaceship.joblib
 # 載入模型與標準化轉換模型
-clf = joblib.load('./model/model_spaceship.joblib')
-scaler = joblib.load('./model/scaler_spaceship.joblib')
+clf = joblib.load('./model/model.breast')
+scaler = joblib.load('./model/scaler.breast')
 st.title('太空船難預測')
 #太空船難檢測參數
 HomePlanet = st.slider('HomePlanet:', min_value=0.0, max_value=1.0, value=0.0)
@@ -35,6 +36,8 @@ Cabin_region7 = st.slider('Cabin_region7:', min_value=0.0, max_value=1.0, value=
 Family_size = st.slider('Family_size:', min_value=0.0, max_value=19.0, value=1.0)
 
 
+
+
 # PassengerId', 'Group', 'Group_size', 'Age_group', 'Cabin_number
 
 
@@ -46,6 +49,28 @@ if st.button('預測'):
        Solo, Cabin_deck, Cabin_side, Cabin_region1,
        Cabin_region2, Cabin_region3, Cabin_region4, Cabin_region5,
        Cabin_region6, Cabin_region7, Family_size]]
+    # Indentify numerical and categorical columns
+    numerical_cols = [cname for cname in X.columns if X[cname].dtype in ['int64', 'float64']]
+    categorical_cols = [cname for cname in X.columns if X[cname].dtype == "object"]
+
+    # Scale numerical data to have mean=0 and variance=1
+    numerical_transformer = Pipeline(steps=[('scaler', StandardScaler())])
+
+    # One-hot encode categorical data
+    categorical_transformer = Pipeline(steps=[('onehot', OneHotEncoder(drop='if_binary', handle_unknown='ignore',sparse=False))])
+
+    # Combine preprocessing
+    ct = ColumnTransformer(
+        transformers=[
+            ('num', numerical_transformer, numerical_cols),
+            ('cat', categorical_transformer, categorical_cols)],
+            remainder='passthrough')
+
+    # Apply preprocessing
+    X_new = ct.fit_transform(X_new)
+    X_test = ct.transform(X_test)
 
     X_new = scaler.transform(X_new)
+    X_test = ct.transform(X_test)
     st.write('### 預測結果是：', labels[clf.predict(X_new)[0]])
+
