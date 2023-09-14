@@ -7,7 +7,7 @@ clf = joblib.load('./model/model_spaceship.joblib')
 scaler = joblib.load('./model/scaler_spaceship.joblib')
 st.title('太空船難預測')
 #太空船難檢測參數
-Age = st.slider('age:', min_value=0, max_value=79, value=18.0)
+PassengerId = st.slider('age:', min_value=0, max_value=79, value=18.0)
 RoomService = st.slider('RoomService:', min_value=0, max_value=14327, value=10000.0)
 FoodCourt = st.slider('FoodCourt:', min_value=0, max_value=29813, value=10000.0)
 ShoppingMall = st.slider('ShoppingMall:', min_value=0, max_value=23492, value=10000.0)
