@@ -8,7 +8,7 @@ st.title('太空船難')
 #癌症檢測參數
 HomePlanet = st.selectbox("HomePlanet", ['Europa', 'Earth', 'Mars'])
 CryoSleep = st.selectbox("CryoSleep", ['False', 'True'])
-Destination = st.selectbox("CryoSleep", ['TRAPPIST-1e', 'PSO J318.5-22','55 Cancri e'])
+Destination = st.selectbox("Destination", ['TRAPPIST-1e', 'PSO J318.5-22','55 Cancri e'])
 Age = st.slider('age:', min_value=0.0, max_value=79.0, value=18.0)
 VIP = st.selectbox("VIP", ['False', 'True'])
 RoomService = st.slider('RoomService:', min_value=0.0, max_value=14327.0, value=10000.0)
