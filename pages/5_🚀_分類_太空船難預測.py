@@ -1,7 +1,7 @@
 import streamlit as st
 import joblib
 import numpy as np
-
+import pandas as pd
 # 載入模型與標準化轉換模型
 clf = joblib.load('./model/model_spaceship.joblib')
 scaler = joblib.load('./model/scaler_spaceship.joblib')
