@@ -5,7 +5,7 @@ import joblib
 clf = joblib.load('./model/model_space.pkl')
 scaler = joblib.load('./model/scaler_space.pkl')
 st.title('太空船難')
-#癌症檢測參數
+#檢測參數
 HomePlanet = st.selectbox("HomePlanet", ['Europa', 'Earth', 'Mars'])
 CryoSleep = st.selectbox("CryoSleep", ['False', 'True'])
 Destination = st.selectbox("Destination", ['TRAPPIST-1e', 'PSO J318.5-22','55 Cancri e'])
@@ -37,7 +37,7 @@ if st.button('預測'):
     Expenditure, No_spending,
     Solo, Cabin_deck, Cabin_side, Cabin_region1,
     Cabin_region2, Cabin_region3, Cabin_region4, Cabin_region5,
-    Cabin_region6, Cabin_region7, Family_size,]]
+    Cabin_region6, Cabin_region7, Family_size]]
 
     X_new = scaler.transform(X_new)
     st.write('### 預測結果是：', labels[clf.predict(X_new)[0]])
