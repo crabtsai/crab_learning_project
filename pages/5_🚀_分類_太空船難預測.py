@@ -2,10 +2,9 @@ import streamlit as st
 import joblib
 from sklearn.preprocessing import StandardScaler, MinMaxScaler, OneHotEncoder, LabelEncoder
 
-model/model_spaceship.joblib
 # 載入模型與標準化轉換模型
-clf = joblib.load('./model/model.breast')
-scaler = joblib.load('./model/scaler.breast')
+clf = joblib.load('./model/model_spaceship.joblib')
+scaler = joblib.load('./model/scaler_spaceship.joblib')
 st.title('太空船難預測')
 #太空船難檢測參數
 HomePlanet = st.slider('HomePlanet:', min_value=0.0, max_value=1.0, value=0.0)
