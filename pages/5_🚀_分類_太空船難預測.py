@@ -49,8 +49,8 @@ if st.button('預測'):
        Cabin_region2, Cabin_region3, Cabin_region4, Cabin_region5,
        Cabin_region6, Cabin_region7, Family_size]]
     # Indentify numerical and categorical columns
-    numerical_cols = [cname for cname in X.columns if X[cname].dtype in ['int64', 'float64']]
-    categorical_cols = [cname for cname in X.columns if X[cname].dtype == "object"]
+    numerical_cols = [cname for cname in X_new.columns if X_new[cname].dtype in ['int64', 'float64']]
+    categorical_cols = [cname for cname in X_new.columns if X_new[cname].dtype == "object"]
 
     # Scale numerical data to have mean=0 and variance=1
     numerical_transformer = Pipeline(steps=[('scaler', StandardScaler())])
