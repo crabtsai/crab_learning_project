@@ -1,5 +1,6 @@
 import streamlit as st
 import joblib
+import numpy as np
 
 # 載入模型與標準化轉換模型
 clf = joblib.load('./model/model_space.pkl')
@@ -38,6 +39,6 @@ if st.button('預測'):
     Solo, Cabin_deck, Cabin_side, Cabin_region1,
     Cabin_region2, Cabin_region3, Cabin_region4, Cabin_region5,
     Cabin_region6, Cabin_region7, Family_size]]
-
+    X_new = np.array(X_new)
     X_new = scaler.transform(X_new)
     st.write('### 預測結果是：', labels[clf.predict(X_new)[0]])
