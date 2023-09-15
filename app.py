@@ -112,7 +112,7 @@ with col4:
 
 col5, col6 = st.columns(2)
 with col5:
-    st.markdown('### [(分類)kaggle競賽(太空船難預測)(分類)')
+    st.markdown('### [(分類)kaggle競賽(太空船難預測)](分類)')
     st.markdown('''
     ##### 數據說明:
 歡迎來到 2912 年，您需要數據科學技能來解決宇宙之謎。我們收到了四光年外的信號，情況看起來不太妙。
