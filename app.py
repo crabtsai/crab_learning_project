@@ -15,7 +15,7 @@ data_url = get_image_html("分類", "./image/iris.png")
 data_url_2 = get_image_html("迴歸", "./image/taxi.png")
 data_url_3 = get_image_html("分類", "./image/breast.jpg")
 data_url_4 = get_image_html("CNN", "./image/ABC.PNG")
-data_url_5 = get_image_html("分類", "./image/spaceship-titanic.PNG","太空船難預測',"https://crablearningproject-jdxvsyfkmt779ckmzwgp6c.streamlit.app/%E5%88%86%E9%A1%9E_%E5%A4%AA%E7%A9%BA%E8%88%B9%E9%9B%A3%E9%A0%90%E6%B8%AC")
+data_url_5 = get_image_html("分類", "./image/spaceship-titanic.PNG","太空船難預測","https://crablearningproject-jdxvsyfkmt779ckmzwgp6c.streamlit.app/%E5%88%86%E9%A1%9E_%E5%A4%AA%E7%A9%BA%E8%88%B9%E9%9B%A3%E9%A0%90%E6%B8%AC")
 
 
 st.set_page_config(
