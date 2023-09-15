@@ -110,7 +110,7 @@ with col4:
     # st.image('taxi.png')
     st.markdown(data_url_4, unsafe_allow_html=True)
 
-col5, col6 = st.columns(2)
+col5 = st.columns(1)
 with col5:
     st.markdown('### [(分類)kaggle競賽(太空船難預測)](分類)')
     st.markdown('''
