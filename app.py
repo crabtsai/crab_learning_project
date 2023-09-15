@@ -10,7 +10,10 @@ import base64
 #         contents = f.read()
 #     data_url = base64.b64encode(contents).decode("utf-8")
 #     return f'<a href="{page_name}"><img src="data:image/png;base64,{data_url}" style="width:300px"></a>'
-
+# st.set_page_config(
+#     page_title="我的學習歷程",
+#     page_icon="👋",
+# )
 
 def get_image_and_link_html(alt_text, image_path, link_text, link_url):
 
@@ -31,11 +34,6 @@ st.markdown(data_url_2, unsafe_allow_html=True)
 st.markdown(data_url_3, unsafe_allow_html=True)
 st.markdown(data_url_4, unsafe_allow_html=True)
 st.markdown(data_url_5, unsafe_allow_html=True)
-
-st.set_page_config(
-    page_title="我的學習歷程",
-    page_icon="👋",
-)
 
 st.title('Crab_Machine Learning 學習歷程')   
 
