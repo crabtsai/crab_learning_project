@@ -15,6 +15,8 @@ data_url = get_image_html("分類", "./image/iris.png")
 data_url_2 = get_image_html("迴歸", "./image/taxi.png")
 data_url_3 = get_image_html("分類", "./image/breast.jpg")
 data_url_4 = get_image_html("CNN", "./image/ABC.PNG")
+data_url_5 = get_image_html("分類", "./image/spaceship-titanic.PNG")
+
 
 st.set_page_config(
     page_title="我的學習歷程",
@@ -107,3 +109,33 @@ with col4:
         ''')
     # st.image('taxi.png')
     st.markdown(data_url_4, unsafe_allow_html=True)
+
+col5, col6 = st.columns(2)
+with col5:
+    st.markdown('### [(分類)kaggle競賽(太空船難預測)(分類)')
+    st.markdown('''
+    ##### 數據說明:
+歡迎來到 2912 年，您需要數據科學技能來解決宇宙之謎。我們收到了四光年外的信號，情況看起來不太妙。
+太空飛船鐵達尼號是一個月前發射的星際客輪。船上有近 13,000 名乘客，這艘船開始了處女航，
+將太陽系的移民運送到圍繞附近恆星運行的三顆新可居住的系外行星。
+在繞過半人馬座阿爾法星前往它的第一個目的地——炎熱的巨蟹座 55 E 時，粗心的太空飛船鐵達尼號與隱藏在塵埃雲中的時空異常相撞
+。可悲的是，它遭遇了與1000 年前同名的命運相似的命運。雖然船完好無損，但幾乎有一半的乘客被運送到了異次元！
+您的任務是預測在太空飛船泰坦尼克號與時空異常相撞期間是否有乘客被運送到另一個維度。
+為了幫助你做出這些預測，你會得到一組從船上受損的系統中恢復的個人記錄。        
+   #####特徵說明: 
+可以發現train data資料欄位為乘客ID、乘客離開的星球、乘客是否選擇在航行期間進入假死狀態、客艙編號、乘客將要去的星球、
+年齡、VIP、豪華設施中所支付的金額、姓名與乘客是否被運送到另一個維度。其中是否傳送至異次元為所預測資料(label)，
+乘客ID為影響是否傳送，其他項目為預測是否傳送的特徵資料     
+Cabin
+特徵說明:
+假死狀態: 有假死存活率較高
+Age:在0-12歲間 存活比例較高(禮讓幼童?)
+solo:沒獨行 存活率高一點點
+Cabin deck: 在B，C的比例存活率高一點
+Cabin Side: 在S(右旋)存活率高一點
+Expenditure : 建立一個新指標來區隔奢侈消費總金額，因窮人是完全沒花費
+No_spending : 隨行人員幾乎沒消費
+Family size : 5~6人間存活率較高       
+        ''')
+    # st.image('taxi.png')
+    st.markdown(data_url_3, unsafe_allow_html=True)
