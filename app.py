@@ -44,7 +44,7 @@ with col1:
     # url must be external url instead of local file
     # st.markdown(f"### [![分類]({url})](分類)")
     st.markdown(data_url, unsafe_allow_html=True)
-    st.markdown('### [(分類)企鵝品種辨識](分類)')
+    # st.markdown('### [(分類)企鵝品種辨識](分類)')
     st.markdown('''
     ##### 特徵(X):
         - 島嶼
@@ -59,9 +59,9 @@ with col1:
         - Gentoo
         ''')
     # st.image('iris.png')
-    st.markdown(data_url, unsafe_allow_html=True)
 with col2:
-    st.markdown('### [(迴歸)計程車小費預測](迴歸)')
+    st.markdown(data_url_2, unsafe_allow_html=True)
+    # st.markdown('### [(迴歸)計程車小費預測](迴歸)')
     st.markdown('''
     ##### 特徵(X):
         - 車費
@@ -73,10 +73,11 @@ with col2:
     ##### 目標：預測小費金額
         ''')
     # st.image('taxi.png')
-    st.markdown(data_url_2, unsafe_allow_html=True)
+    # st.markdown(data_url_2, unsafe_allow_html=True)
 col3, col4 = st.columns(2)
 with col3:
-    st.markdown('### [(分類)乳癌腫瘤預測](分類)')
+    st.markdown(data_url_3, unsafe_allow_html=True)
+    # st.markdown('### [(分類)乳癌腫瘤預測](分類)')
     st.markdown('''
     ##### 特徵(X):
                 #Breast cancer wisconsin (diagnostic) dataset#
@@ -95,7 +96,8 @@ with col3:
     # st.image('taxi.png')
     st.markdown(data_url_3, unsafe_allow_html=True)
 with col4:
-    st.markdown('### [(CNN)神經網路_辨識英文字母)](CNN)')
+    st.markdown(data_url_4, unsafe_allow_html=True)
+    # st.markdown('### [(CNN)神經網路_辨識英文字母)](CNN)')
     st.markdown('''
     ##### 資料集:
          -EMNIST Letters
@@ -123,11 +125,12 @@ with col4:
     ##### 目標：辨識A~Z英文字母
         ''')
     # st.image('taxi.png')
-    st.markdown(data_url_4, unsafe_allow_html=True)
+    # st.markdown(data_url_4, unsafe_allow_html=True)
 
 col5,col6 = st.columns(2)
 with col5:
-    st.markdown('### [(分類)kaggle競賽(太空船難預測)](分類)')
+    st.markdown(data_url_5, unsafe_allow_html=True)
+    # st.markdown('### [(分類)kaggle競賽(太空船難預測)](分類)')
     st.markdown('''
     ##### 數據說明:
 歡迎來到 2912 年，您需要數據科學技能來解決宇宙之謎。我們收到了四光年外的信號，情況看起來不太妙。
@@ -153,4 +156,4 @@ with col5:
          - Family size : 5~6人間存活率較高/n      
         ''')
     # st.image('taxi.png')
-    st.markdown(data_url_5, unsafe_allow_html=True)
+    # st.markdown(data_url_5, unsafe_allow_html=True)
