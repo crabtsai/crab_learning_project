@@ -94,7 +94,7 @@ with col3:
     ##### 目標：腫瘤 良性or惡性
         ''')
     # st.image('taxi.png')
-    st.markdown(data_url_3, unsafe_allow_html=True)
+    # st.markdown(data_url_3, unsafe_allow_html=True)
 with col4:
     st.markdown(data_url_4, unsafe_allow_html=True)
     # st.markdown('### [(CNN)神經網路_辨識英文字母)](CNN)')
