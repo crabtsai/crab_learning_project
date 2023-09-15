@@ -110,7 +110,7 @@ with col4:
     # st.image('taxi.png')
     st.markdown(data_url_4, unsafe_allow_html=True)
 
-col5 = st.columns(1)
+col5,col6 = st.columns(2)
 with col5:
     st.markdown('### [(分類)kaggle競賽(太空船難預測)](分類)')
     st.markdown('''
@@ -127,15 +127,15 @@ with col5:
 年齡、VIP、豪華設施中所支付的金額、姓名與乘客是否被運送到另一個維度。其中是否傳送至異次元為所預測資料(label)，
 乘客ID為影響是否傳送，其他項目為預測是否傳送的特徵資料     
 
-    ##### 其他說明:
-         - 假死狀態: 有假死存活率較高
-         - Age:在0-12歲間 存活比例較高(禮讓幼童?)
-         - solo:沒獨行 存活率高一點點
-         - Cabin deck: 在B，C的比例存活率高一點
-         - Cabin Side: 在S(右旋)存活率高一點
-         - Expenditure : 建立一個新指標來區隔奢侈消費總金額，因窮人是完全沒花費
-         - No_spending : 隨行人員幾乎沒消費
-         - Family size : 5~6人間存活率較高       
+    ##### 其他說明:/n
+         - 假死狀態: 有假死存活率較高/n
+         - Age:在0-12歲間 存活比例較高(禮讓幼童?)/n
+         - solo:沒獨行 存活率高一點點/n
+         - Cabin deck: 在B，C的比例存活率高一點/n
+         - Cabin Side: 在S(右旋)存活率高一點/n
+         - Expenditure : 建立一個新指標來區隔奢侈消費總金額，因窮人是完全沒花費/n
+         - No_spending : 隨行人員幾乎沒消費/n
+         - Family size : 5~6人間存活率較高/n      
         ''')
     # st.image('taxi.png')
     st.markdown(data_url_5, unsafe_allow_html=True)
