@@ -33,10 +33,10 @@ data_url_5 = get_image_and_link_html("分類", "./image/spaceship-titanic.PNG", 
 # 使用 st.markdown 显示包含图像和超链接的 HTML
 st.markdown(data_url_5, unsafe_allow_html=True)
 
-data_url = get_image_and_link_html("分類", "./image/iris.png")
-data_url_2 = get_image_and_link_html("迴歸", "./image/taxi.png")
-data_url_3 = get_image_and_link_html("分類", "./image/breast.jpg")
-data_url_4 = get_image_and_link_html("CNN", "./image/ABC.PNG")
+data_url = get_image_and_link_html("分類", "./image/iris.png","企鵝品種預測系統","https://crablearningproject-jdxvsyfkmt779ckmzwgp6c.streamlit.app/%E5%88%86%E9%A1%9E_%E4%BC%81%E9%B5%9D%E5%93%81%E7%A8%AE%E8%BE%A8%E8%AD%98")
+data_url_2 = get_image_and_link_html("迴歸", "./image/taxi.png","計程車費率預測","https://crablearningproject-jdxvsyfkmt779ckmzwgp6c.streamlit.app/%E8%BF%B4%E6%AD%B8_%E8%A8%88%E7%A8%8B%E8%BB%8A%E5%B0%8F%E8%B2%BB%E9%A0%90%E6%B8%AC")
+data_url_3 = get_image_and_link_html("分類", "./image/breast.jpg","乳癌腫瘤預測","https://crablearningproject-jdxvsyfkmt779ckmzwgp6c.streamlit.app/%E5%88%86%E9%A1%9E_%E4%B9%B3%E7%99%8C%E9%A0%90%E6%B8%AC")
+data_url_4 = get_image_and_link_html("CNN", "./image/ABC.PNG","神經網路_辨識英文字母","https://crablearningproject-jdxvsyfkmt779ckmzwgp6c.streamlit.app/CNN%E7%A5%9E%E7%B6%93%E7%B6%B2%E8%B7%AF_%E8%BE%A8%E8%AD%98%E8%8B%B1%E6%96%87%E5%AD%97%E6%AF%8D")
 data_url_5 = get_image_and_link_html("分類", "./image/spaceship-titanic.PNG", "太空船難預測", "https://crablearningproject-jdxvsyfkmt779ckmzwgp6c.streamlit.app/~/+/%E5%88%86%E9%A1%9E_%E5%A4%AA%E7%A9%BA%E8%88%B9%E9%9B%A3%E9%A0%90%E6%B8%AC")
 
 
