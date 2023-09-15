@@ -5,17 +5,39 @@ import numpy as np
 import joblib
 import base64
 
-def get_image_html(page_name, file_name):
-    with open(file_name, "rb") as f:
-        contents = f.read()
-    data_url = base64.b64encode(contents).decode("utf-8")
-    return f'<a href="{page_name}"><img src="data:image/png;base64,{data_url}" style="width:300px"></a>'
+# def get_image_html(page_name, file_name):
+#     with open(file_name, "rb") as f:
+#         contents = f.read()
+#     data_url = base64.b64encode(contents).decode("utf-8")
+#     return f'<a href="{page_name}"><img src="data:image/png;base64,{data_url}" style="width:300px"></a>'
 
-data_url = get_image_html("分類", "./image/iris.png")
-data_url_2 = get_image_html("迴歸", "./image/taxi.png")
-data_url_3 = get_image_html("分類", "./image/breast.jpg")
-data_url_4 = get_image_html("CNN", "./image/ABC.PNG")
-data_url_5 = get_image_html("分類", "./image/spaceship-titanic.PNG","太空船難預測","https://crablearningproject-jdxvsyfkmt779ckmzwgp6c.streamlit.app/%E5%88%86%E9%A1%9E_%E5%A4%AA%E7%A9%BA%E8%88%B9%E9%9B%A3%E9%A0%90%E6%B8%AC")
+
+def get_image_and_link_html(alt_text, image_path, link_text, link_url):
+    """
+    Generate HTML code for displaying an image with a hyperlink.
+
+    Args:
+        alt_text (str): The alternative text for the image.
+        image_path (str): The file path or URL of the image.
+        link_text (str): The text for the hyperlink.
+        link_url (str): The URL to link to.
+
+    Returns:
+        str: An HTML string for displaying the image with a hyperlink.
+    """
+    image_and_link_html = f'<a href="{link_url}"><img src="{image_path}" alt="{alt_text}" /></a><br><a href="{link_url}">{link_text}</a>'
+    return image_and_link_html
+
+data_url_5 = get_image_and_link_html("分類", "./image/spaceship-titanic.PNG", "太空船難預測", "https://crablearningproject-jdxvsyfkmt779ckmzwgp6c.streamlit.app/~/+/%E5%88%86%E9%A1%9E_%E5%A4%AA%E7%A9%BA%E8%88%B9%E9%9B%A3%E9%A0%90%E6%B8%AC")
+
+# 使用 st.markdown 显示包含图像和超链接的 HTML
+st.markdown(data_url_5, unsafe_allow_html=True)
+
+data_url = get_image_and_link_html("分類", "./image/iris.png")
+data_url_2 = get_image_and_link_html("迴歸", "./image/taxi.png")
+data_url_3 = get_image_and_link_html("分類", "./image/breast.jpg")
+data_url_4 = get_image_and_link_html("CNN", "./image/ABC.PNG")
+data_url_5 = get_image_and_link_html("分類", "./image/spaceship-titanic.PNG", "太空船難預測", "https://crablearningproject-jdxvsyfkmt779ckmzwgp6c.streamlit.app/~/+/%E5%88%86%E9%A1%9E_%E5%A4%AA%E7%A9%BA%E8%88%B9%E9%9B%A3%E9%A0%90%E6%B8%AC")
 
 
 st.set_page_config(
