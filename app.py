@@ -25,7 +25,7 @@ def get_image_and_link_html(alt_text, image_path, link_text, link_url):
 
 # 使用 st.markdown 显示包含图像和超链接的 HTML
 
-data_url = get_image_and_link_html("分類", "./image/iris.png","企鵝品種預測系統","https://crablearningproject-jdxvsyfkmt779ckmzwgp6c.streamlit.app/%E5%88%86%E9%A1%9E_%E4%BC%81%E9%B5%9D%E5%93%81%E7%A8%AE%E8%BE%A8%E8%AD%98")
+data_url = get_image_and_link_html("### 分類", "./image/iris.png","企鵝品種預測系統","https://crablearningproject-jdxvsyfkmt779ckmzwgp6c.streamlit.app/%E5%88%86%E9%A1%9E_%E4%BC%81%E9%B5%9D%E5%93%81%E7%A8%AE%E8%BE%A8%E8%AD%98")
 data_url_2 = get_image_and_link_html("迴歸", "./image/taxi.png","計程車費率預測","https://crablearningproject-jdxvsyfkmt779ckmzwgp6c.streamlit.app/%E8%BF%B4%E6%AD%B8_%E8%A8%88%E7%A8%8B%E8%BB%8A%E5%B0%8F%E8%B2%BB%E9%A0%90%E6%B8%AC")
 data_url_3 = get_image_and_link_html("分類", "./image/breast.jpg","乳癌腫瘤預測","https://crablearningproject-jdxvsyfkmt779ckmzwgp6c.streamlit.app/%E5%88%86%E9%A1%9E_%E4%B9%B3%E7%99%8C%E9%A0%90%E6%B8%AC")
 data_url_4 = get_image_and_link_html("CNN", "./image/ABC.PNG","神經網路_辨識英文字母","https://crablearningproject-jdxvsyfkmt779ckmzwgp6c.streamlit.app/CNN%E7%A5%9E%E7%B6%93%E7%B6%B2%E8%B7%AF_%E8%BE%A8%E8%AD%98%E8%8B%B1%E6%96%87%E5%AD%97%E6%AF%8D")
@@ -43,6 +43,7 @@ col1, col2 = st.columns(2)
 with col1:
     # url must be external url instead of local file
     # st.markdown(f"### [![分類]({url})](分類)")
+    st.markdown(data_url, unsafe_allow_html=True)
     st.markdown('### [(分類)企鵝品種辨識](分類)')
     st.markdown('''
     ##### 特徵(X):
