@@ -126,16 +126,16 @@ with col5:
 可以發現train data資料欄位為乘客ID、乘客離開的星球、乘客是否選擇在航行期間進入假死狀態、客艙編號、乘客將要去的星球、
 年齡、VIP、豪華設施中所支付的金額、姓名與乘客是否被運送到另一個維度。其中是否傳送至異次元為所預測資料(label)，
 乘客ID為影響是否傳送，其他項目為預測是否傳送的特徵資料     
-Cabin
-特徵說明:
-假死狀態: 有假死存活率較高
-Age:在0-12歲間 存活比例較高(禮讓幼童?)
-solo:沒獨行 存活率高一點點
-Cabin deck: 在B，C的比例存活率高一點
-Cabin Side: 在S(右旋)存活率高一點
-Expenditure : 建立一個新指標來區隔奢侈消費總金額，因窮人是完全沒花費
-No_spending : 隨行人員幾乎沒消費
-Family size : 5~6人間存活率較高       
+
+    ##### 其他說明:
+         - 假死狀態: 有假死存活率較高
+         - Age:在0-12歲間 存活比例較高(禮讓幼童?)
+         - solo:沒獨行 存活率高一點點
+         - Cabin deck: 在B，C的比例存活率高一點
+         - Cabin Side: 在S(右旋)存活率高一點
+         - Expenditure : 建立一個新指標來區隔奢侈消費總金額，因窮人是完全沒花費
+         - No_spending : 隨行人員幾乎沒消費
+         - Family size : 5~6人間存活率較高       
         ''')
     # st.image('taxi.png')
     st.markdown(data_url_5, unsafe_allow_html=True)
