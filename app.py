@@ -18,7 +18,7 @@ import base64
 def get_image_and_link_html(alt_text, image_path, link_text, link_url):
     with open(image_path, "rb") as f:
         contents = f.read()
-        
+    data_url = base64.b64encode(contents).decode("utf-8")    
     image_and_link_html = f'<a href="{link_url}"><img src="data:image/png;base64,{data_url}" style="width:300px" alt="{alt_text}" /></a><br><a href="{link_url}">{link_text}</a>'
     return image_and_link_html
 
