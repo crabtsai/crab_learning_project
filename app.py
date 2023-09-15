@@ -138,4 +138,4 @@ No_spending : 隨行人員幾乎沒消費
 Family size : 5~6人間存活率較高       
         ''')
     # st.image('taxi.png')
-    st.markdown(data_url_3, unsafe_allow_html=True)
+    st.markdown(data_url_5, unsafe_allow_html=True)
