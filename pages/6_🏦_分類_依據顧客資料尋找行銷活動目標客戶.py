@@ -41,7 +41,7 @@ contact_telephone = st.selectbox("是否有留手機號碼", ['False', 'True'])
 contact_telephone_list = {'False':0,'True':1}
 contact_telephone = contact_telephone_list[contact_telephone]
 
-month = st.selectbox('最後一次聯繫月份':['3','4','5','6','7','8','10','11','12'])
+month = st.selectbox('最後一次聯繫月份',['3','4','5','6','7','8','10','11','12'])
 month_apr = 0
 month_aug = 0
 month_dec = 0
