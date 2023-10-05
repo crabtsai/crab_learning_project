@@ -92,5 +92,7 @@ if st.button('預測'):
     # 如果 X_new 是一個列表，轉換為二維數組
     X_new = np.array(X_new)
     X_new = np.array(X_new).reshape(1, -1)
-
+    print(f'X_new.shape: {X_new.shape}')
+    print(f'X_new: {X_new}')
+    print(f'X_new: {type(X_new)}')
     st.write('### 預測結果是：', labels[clf.predict(X_new)[0]])
