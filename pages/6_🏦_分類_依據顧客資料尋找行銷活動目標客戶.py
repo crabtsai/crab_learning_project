@@ -96,4 +96,6 @@ if st.button('預測'):
     # print(f'X_new: {X_new}')
     # print(f'X_new: {type(X_new)}')
     prediction_result = clf.predict(X_new).tolist()
-    st.write('### 預測結果是：', labels[prediction_result[0]])
+    prediction_index = int(prediction_result[0])
+    st.write('### 預測結果是：', labels[prediction_index])
+
