@@ -84,10 +84,10 @@ else:
 
 labels = ['不買', '買']
 if st.button('預測'):
-    X_new = [[euribor3m, job_blue_collar, job_housemaid, marital_unknown,
+    X_new = [euribor3m, job_blue_collar, job_housemaid, marital_unknown,
        education_illiterate, default_no, default_unknown,
        contact_cellular, contact_telephone, month_apr, month_aug,
        month_dec, month_jul, month_jun, month_mar, month_may,
-       month_nov, month_oct, poutcome_failure, poutcome_success,]]
+       month_nov, month_oct, poutcome_failure, poutcome_success,]
 
     st.write('### 預測結果是：', labels[clf.predict(X_new)[0]])
