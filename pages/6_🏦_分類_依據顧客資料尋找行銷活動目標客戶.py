@@ -1,9 +1,9 @@
 import streamlit as st
 import joblib
-
+import numpy as np
 # 載入模型與標準化轉換模型
 clf = joblib.load('./model/model.custom')
-
+X_new = np.array(X_new)
 st.title('銀行預測顧客是否購買定存')
 #銀行檢測參數
 euribor3m = st.slider('euribor 3 個月利率:', min_value=0.634, max_value=5.045, value=1.88)
@@ -90,6 +90,6 @@ if st.button('預測'):
        month_dec, month_jul, month_jun, month_mar, month_may,
        month_nov, month_oct, poutcome_failure, poutcome_success]]
     # 如果 X_new 是一個列表，轉換為二維數組
-    X_new = [X_new]  # 將單一樣本放入列表
+    X_new = np.array(X_new).reshape(1, -1)
 
     st.write('### 預測結果是：', labels[clf.predict(X_new)[0]])
