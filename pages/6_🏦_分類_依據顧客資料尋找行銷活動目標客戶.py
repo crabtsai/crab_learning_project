@@ -88,7 +88,7 @@ if st.button('預測'):
        education_illiterate, default_no, default_unknown,
        contact_cellular, contact_telephone, month_apr, month_aug,
        month_dec, month_jul, month_jun, month_mar, month_may,
-       month_nov, month_oct, poutcome_failure, poutcome_success,]]
+       month_nov, month_oct, poutcome_failure, poutcome_success]]
     # 如果 X_new 是一個列表，轉換為二維數組
     X_new = [X_new]  # 將單一樣本放入列表
 
