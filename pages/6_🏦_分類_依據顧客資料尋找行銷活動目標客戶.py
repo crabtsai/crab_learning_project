@@ -84,10 +84,11 @@ else:
 
 labels = ['不買', '買']
 if st.button('預測'):
-    X_new = [[euribor3m, job_blue_collar, job_housemaid, marital_unknown,
-       education_illiterate, month_apr, month_aug,
-       month_dec, month_jul, month_jun, month_mar, month_may,
-       month_nov, month_oct, poutcome_failure, poutcome_success]]
+    X_new = [[float(euribor3m), float(job_blue_collar), float(job_housemaid), float(marital_unknown),
+       float(education_illiterate), float(month_apr), float(month_aug),
+       float(month_dec), float(month_jul), float(month_jun), float(month_mar), float(month_may),
+       float(month_nov), float(month_oct), float(poutcome_failure), float(poutcome_success)]]
+
     # 如果 X_new 是一個列表，轉換為二維數組
     X_new = np.array(X_new)
     X_new = np.array(X_new).reshape(1, -1)
