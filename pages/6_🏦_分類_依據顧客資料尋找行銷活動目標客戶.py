@@ -22,24 +22,24 @@ education_illiterate = st.selectbox("文盲", ['False', 'True'])
 education_illiterate_list = {'False':0,'True':1}
 education_illiterate= education_illiterate_list[education_illiterate]
 
-default_no = st.selectbox("信用不良", ['False', 'True','unknown'])
-if default_no == 'False':
-    default_no = 1
-    default_unknown =0
-elif default_no =='True':
-    default_no = 0
-    default_unknown = 0    
-else:
-    default_no = 0
-    default_unknown =1  
+# default_no = st.selectbox("信用不良", ['False', 'True','unknown'])
+# if default_no == 'False':
+#     default_no = 1
+#     default_unknown =0
+# elif default_no =='True':
+#     default_no = 0
+#     default_unknown = 0    
+# else:
+#     default_no = 0
+#     default_unknown =1  
 
-contact_cellular = st.selectbox("是否有留家用電話號碼", ['False', 'True'])
-contact_cellular_list = {'False':0,'True':1}
-contact_cellular = contact_cellular_list[contact_cellular]
+# contact_cellular = st.selectbox("是否有留家用電話號碼", ['False', 'True'])
+# contact_cellular_list = {'False':0,'True':1}
+# contact_cellular = contact_cellular_list[contact_cellular]
 
-contact_telephone = st.selectbox("是否有留手機號碼", ['False', 'True'])
-contact_telephone_list = {'False':0,'True':1}
-contact_telephone = contact_telephone_list[contact_telephone]
+# contact_telephone = st.selectbox("是否有留手機號碼", ['False', 'True'])
+# contact_telephone_list = {'False':0,'True':1}
+# contact_telephone = contact_telephone_list[contact_telephone]
 
 month = st.selectbox('最後一次聯繫月份',['3','4','5','6','7','8','10','11','12'])
 month_apr = 0
@@ -85,14 +85,13 @@ else:
 labels = ['不買', '買']
 if st.button('預測'):
     X_new = [[euribor3m, job_blue_collar, job_housemaid, marital_unknown,
-       education_illiterate, default_no, default_unknown,
-       contact_cellular, contact_telephone, month_apr, month_aug,
+       education_illiterate, month_apr, month_aug,
        month_dec, month_jul, month_jun, month_mar, month_may,
        month_nov, month_oct, poutcome_failure, poutcome_success]]
     # 如果 X_new 是一個列表，轉換為二維數組
-    X_new = np.array(X_new)
-    X_new = np.array(X_new).reshape(1, -1)
-    print(f'X_new.shape: {X_new.shape}')
-    print(f'X_new: {X_new}')
-    print(f'X_new: {type(X_new)}')
+    # X_new = np.array(X_new)
+    # X_new = np.array(X_new).reshape(1, -1)
+    # print(f'X_new.shape: {X_new.shape}')
+    # print(f'X_new: {X_new}')
+    # print(f'X_new: {type(X_new)}')
     st.write('### 預測結果是：', labels[clf.predict(X_new)[0]])
