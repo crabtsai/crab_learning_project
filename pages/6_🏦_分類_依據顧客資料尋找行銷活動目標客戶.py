@@ -82,7 +82,7 @@ else:
 
 
 
-labels = ['不買', '買',]
+labels = ['不買', '買']
 if st.button('預測'):
     X_new = [[euribor3m, job_blue_collar, job_housemaid, marital_unknown,
        education_illiterate, default_no, default_unknown,
