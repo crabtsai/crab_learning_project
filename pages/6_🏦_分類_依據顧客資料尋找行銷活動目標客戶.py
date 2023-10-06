@@ -14,9 +14,11 @@ if job == 'blue-collar':
 else:
     job_blue_collar = 1
     job_housemaid = 0
-marital_unknown = st.selectbox("婚姻", ['False', 'True'])
-marital_unknown_list = {'False':0,'True':1}
-marital_unknown = marital_unknown_list[marital_unknown]
+marital_unknown = st.checkbox('是否結婚了')
+if marital_unknown:
+    marital_unknown = 1
+else:
+    marital_unknown = 0
 
 education_illiterate = st.selectbox("文盲", ['False', 'True'])
 education_illiterate_list = {'False':0,'True':1}
