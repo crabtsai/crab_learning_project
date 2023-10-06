@@ -20,9 +20,11 @@ if marital_unknown:
 else:
     marital_unknown = 0
 
-education_illiterate = st.selectbox("文盲", ['False', 'True'])
-education_illiterate_list = {'False':0,'True':1}
-education_illiterate= education_illiterate_list[education_illiterate]
+education_illiterate = st.checkbox('識字')
+if education_illiterate:
+    education_illiterate = 1
+else:
+    education_illiterate = 0
 
 # default_no = st.selectbox("信用不良", ['False', 'True','unknown'])
 # if default_no == 'False':
