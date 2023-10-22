@@ -9,4 +9,4 @@ joblib
 yfinance
 catboost
 ultralytics
-
+tensorflow
