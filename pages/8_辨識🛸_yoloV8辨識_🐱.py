@@ -3,7 +3,7 @@ from skimage import io
 import numpy as np
 from ultralytics import YOLO
 import matplotlib.pyplot as plt  # 新增這一行
-
+from ultralytics.utils.plotting import Annotator
 st.title("上傳圖片辨識")
 st.info("訓練模型(YOLO_V8)")
 
@@ -25,22 +25,26 @@ if uploaded_file is not None:
         # 显示检测结果
         st.subheader("檢測結果")
         
-        # 使用 matplotlib 繪製檢測框
-        fig, ax = plt.subplots()
-        ax.imshow(image)
-        
-        for result in results.xyxy[0]:
-            st.write(f"類別: {result[5]}, 置信度: {result[4]*100:.2f}%")
-            
-            # 繪製檢測框
-            box = result[0:4]
-            rect = plt.Rectangle((box[0], box[1]), box[2]-box[0], box[3]-box[1], linewidth=1, edgecolor='r', facecolor='none')
-            ax.add_patch(rect)
-        
+        result_skr = None
+        result_str = []
+        # 顯示物件類別
+        print(results[0].boxes.cls)
+        # # print()
+        for i, result in enumerate(results):
+            annotator = Annotator(image)
+            boxes = result.boxes
+            for box in boxes:
+                cls = box.cls
+                xyxy = box.xyxy[0]
+                result_str_1 = yolo.names[int(cls[0])]
+                result_str.append(result_str_1)
+                annotator.box_label(xyxy,yolo.names[int(cls[0])],(50,125,50))
+        img = annotator.result()
         # 顯示標註後的圖片
-        st.pyplot(fig)
+
+        st.pyplot(img)
+        st.write(result_str)
         
     except Exception as e:
         print(f"Error during prediction: {e}")
-
 
