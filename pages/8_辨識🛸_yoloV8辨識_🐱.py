@@ -2,15 +2,7 @@ import streamlit as st
 from skimage import io
 from skimage.transform import resize
 import numpy as np
-import tensorflow as tf
 from ultralytics import YOLO
-# from pyvirtualdisplay import Display
-
-# # 创建虚拟显示
-# display = Display(visible=0, size=(1400, 900))
-# display.start()
-
-
 
 st.title("上傳圖片辨識")
 st.info("訓練模型(YOLO_V8)")
@@ -26,21 +18,18 @@ if uploaded_file is not None:
     st.image(image, caption="上傳的圖像", use_column_width=True)
 
     # 使用 YOLO 进行对象检测
-    pretrained_weights_path('./model/yolov8n.pt')
-    yolo = YOLO()
+    pretrained_weights_path = './model/yolov8n.pt'
+    yolo = YOLO(pretrained_weights_path)
     try:
-        yolo = yolo.load(pretrained_weights_path)
+        # 這裡可能不需要再次加載權重，因為上面已經在構造函數中指定了
+        results = yolo.predict(image)  # 对图像进行预测
+        # 显示检测结果
+        st.subheader("檢測結果")
+        for result in results.xyxy[0]:
+            st.write(f"類別: {result[5]}, 置信度: {result[4]*100:.2f}%")
+            st.image(result[0:4], caption="檢測結果", use_column_width=True)
     except Exception as e:
-        print(f"Error loading the model: {e}")
-        raise  # Reraise the exception for more detailed information
-    results = yolo.predict(image)  # 对图像进行预测
-    # 显示检测结果
-    st.subheader("檢測結果")
-    for result in results.xyxy[0]:
-        st.write(f"類別: {result[5]}, 置信度: {result[4]*100:.2f}%")
-        st.image(result[0:4], caption="檢測結果", use_column_width=True)
+        print(f"Error during prediction: {e}")
 
-# # 关闭虚拟显示
-# display.stop()
 
 
