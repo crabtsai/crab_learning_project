@@ -42,7 +42,7 @@ if uploaded_file is not None:
         img = annotator.result()
         # 顯示標註後的圖片
 
-        st.pyplot(img)
+        st.image(img, caption="檢測結果", use_column_width=True)
         st.write(result_str)
         
     except Exception as e:
