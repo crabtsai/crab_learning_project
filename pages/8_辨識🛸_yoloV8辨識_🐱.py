@@ -28,6 +28,7 @@ if uploaded_file is not None:
         # 显示检测结果
         st.subheader("檢測結果")
         for result in results.xyxy[0]:
+            prit(result)
             st.write(f"類別: {result[5]}, 置信度: {result[4]*100:.2f}%")
             st.image(result[0:4], caption="檢測結果", use_column_width=True)
     except Exception as e:
