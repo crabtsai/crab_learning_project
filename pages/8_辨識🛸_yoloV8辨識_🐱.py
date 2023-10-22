@@ -26,11 +26,9 @@ if uploaded_file is not None:
     st.image(image, caption="上傳的圖像", use_column_width=True)
 
     # 使用 YOLO 进行对象检测
-    try:
-        yolo = YOLO('./model/yolov8n.pt')
-    except Exception as e:
-        print(f"Error loading the model: {e}")
-        raise  # Reraise the exception for more detailed information
+    
+    yolo = YOLO('./model/yolov8n.pt')
+
     results = yolo.predict(image)  # 对图像进行预测
     # 显示检测结果
     st.subheader("檢測結果")
@@ -40,3 +38,5 @@ if uploaded_file is not None:
 
 # # 关闭虚拟显示
 # display.stop()
+
+
