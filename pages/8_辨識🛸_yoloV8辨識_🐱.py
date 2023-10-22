@@ -19,7 +19,9 @@ if uploaded_file is not None:
 
     # 使用 YOLO 进行对象检测
     pretrained_weights_path = './model/yolov8n.pt'
-    yolo = YOLO(pretrained_weights_path)
+    
+    yolo = YOLO()
+    yolo = yolo.load(pretrained_weights_path)
     try:
         # 這裡可能不需要再次加載權重，因為上面已經在構造函數中指定了
         results = yolo.predict(image)  # 对图像进行预测
