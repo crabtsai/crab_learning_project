@@ -31,7 +31,5 @@ jobs:
         run: sudo apt-get install -y libgl1
         
       - name: Run your application
-        run: |
-        cd /home/runner/work/crab_learning_project/crab_learning_project/pages/
-        python 8_辨識🛸_yoloV8辨識_🐱.py
+        run: python pages/8_辨識🛸_yoloV8辨識_🐱.py
             
