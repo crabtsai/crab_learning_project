@@ -6,7 +6,7 @@ import tensorflow as tf
 from tensorflow.keras.optimizers import RMSprop
 # 加载模型
 custom_objects = {'rmsprop': RMSprop}
-model = tf.keras.models.load_model('./model/cats_and_dogs_new_2.h5', custom_objects=custom_objects)
+model = tf.keras.models.load_model('./model/cats_and_dogs_new_2.h5', custom_objects)
 
 st.title("上傳圖片(貓~狗)辨識")
 st.info("因訓練模型(VGG-16)輸入圖片為150*150，輸入圖片狗跟貓比例占比需高")
