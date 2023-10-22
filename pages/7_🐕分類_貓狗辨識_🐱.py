@@ -5,10 +5,29 @@ from tensorflow.keras.models import load_model
 import keras
 import tensorflow as tf
 
-opt = tf.keras.optimizers.SGD(learning_rate=0.1)
+from tensorflow.keras.optimizers import RMSprop
+
+opt = RMSprop()
+def get_lr_metric(optimizer):
+    def lr(y_true, y_pred):
+        return optimizer.lr
+    return lr
+
+lr_track = get_lr_metric(opt)
+
+MIN_LR = 1e-7
+MAX_LR = 1e-3
+CLR_METHOD = "triangular"
+
+clr = CyclicLR(
+    mode= CLR_METHOD,
+    base_lr= MIN_LR,
+    max_lr= MAX_LR,
+    step_size= steps_per_epoch)
+
 
 # Load the model with the custom layer, custom function, and custom optimizer
-model = load_model('./model/cats_and_dogs_new_2.h5', custom_objects={'SGD': opt})
+model = load_model('./model/cats_and_dogs_new_2.h5', custom_objects={"lr": lr_track })
 
 st.title("上傳圖片(貓~狗)辨識")
 st.info("因訓練模型(VGG-16)輸入圖片為150*150，輸入圖片狗跟貓比例占比需高")
