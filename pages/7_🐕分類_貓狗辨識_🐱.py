@@ -3,7 +3,7 @@ from skimage import io, transform
 import numpy as np
 import tensorflow as tf
 
-from path.to.your.custom_optimizer_module import CustomRMSprop 
+from custom_optimizer import CustomRMSprop
 
 # Load the model with the custom optimizer
 model = tf.keras.models.load_model('./model/cats_and_dogs_new_2.h5', custom_objects={'CustomRMSprop': CustomRMSprop})
