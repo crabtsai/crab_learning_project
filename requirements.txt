@@ -1,7 +1,7 @@
 streamlit-drawable-canvas
 pandas==1.5.3
 scikit-learn==1.2.2
-protobuf>=3.9.2
+protobuf==3.19.4 
 tensorflow-cpu
 scikit-image
 joblib
