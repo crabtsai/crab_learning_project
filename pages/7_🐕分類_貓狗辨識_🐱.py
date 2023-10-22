@@ -4,10 +4,11 @@ import numpy as np
 from tensorflow.keras.models import load_model
 import keras
 import tensorflow as tf
+
 opt = tf.keras.optimizers.SGD(learning_rate=0.1)
 
 # Load the model with the custom layer, custom function, and custom optimizer
-model = load_model('./model/cats_and_dogs_new_2.h5', opt)
+model = load_model('./model/cats_and_dogs_new_2.h5', custom_objects={'SGD': opt})
 
 st.title("上傳圖片(貓~狗)辨識")
 st.info("因訓練模型(VGG-16)輸入圖片為150*150，輸入圖片狗跟貓比例占比需高")
