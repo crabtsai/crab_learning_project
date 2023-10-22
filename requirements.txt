@@ -11,4 +11,5 @@ catboost
 ultralytics
 Pillow 
 opencv-python
-PyTorch>=1.8
+torch==1.8
+
