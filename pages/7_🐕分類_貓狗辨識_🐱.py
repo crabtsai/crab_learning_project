@@ -3,6 +3,7 @@ from skimage import io, transform
 import numpy as np
 from tensorflow.keras.models import load_model
 import keras
+import tensorflow as tf
 opt = tf.keras.optimizers.experimental.SGD(learning_rate=0.1)
 # Load the model with the custom layer, custom function, and custom optimizer
 model = load_model('./model/cats_and_dogs_new_2.h5', opt)
