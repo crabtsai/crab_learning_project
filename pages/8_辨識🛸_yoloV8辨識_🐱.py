@@ -21,14 +21,17 @@ if uploaded_file is not None:
     image = io.imread(uploaded_file)
     if image.shape[-1] == 4:  # 如果通道数为4，通常是带有alpha通道的图像
         image = image[:, :, :3]  # 去除alpha通道
-
+    
     # 显示原始上传图像
     st.image(image, caption="上傳的圖像", use_column_width=True)
 
     # 使用 YOLO 进行对象检测
-    
-    yolo = YOLO('./model/yolov8n.pt')
-
+    pretrained_weights_path('./model/yolov8n.pt')
+    try:
+        yolo = YOLO(pretrained_weights_path)
+    except Exception as e:
+        print(f"Error loading the model: {e}")
+        raise  # Reraise the exception for more detailed information
     results = yolo.predict(image)  # 对图像进行预测
     # 显示检测结果
     st.subheader("檢測結果")
