@@ -10,3 +10,4 @@ yfinance
 catboost
 ultralytics
 Pillow 
+opencv-python
