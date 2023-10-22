@@ -53,7 +53,7 @@ if uploaded_file is not None:
                 result_str_1 = yolo.names[int(cls[0])]
                 result_str.append(result_str_1)
                 annotator.box_label(xyxy,yolo.names[int(cls[0])],colors_rgb[f'{colors_count}'])
-                colors_count +=1
+                colors_count += 1
         img = annotator.result()
         # 顯示標註後的圖片
 
