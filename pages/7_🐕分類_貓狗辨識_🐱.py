@@ -10,7 +10,7 @@ class CustomRMSprop(RMSprop):
 
 # 載入模型時使用custom_objects
 custom_objects = {'CustomRMSprop': CustomRMSprop}
-model = tf.keras.models.load_model('./model/cats_and_dogs_new_2.h5', custom_objects=custom_objects)
+model = keras.models.load_model('./model/cats_and_dogs_new_2.h5')
 
 st.title("上傳圖片(貓~狗)辨識")
 st.info("因訓練模型(VGG-16)輸入圖片為150*150，輸入圖片狗跟貓比例占比需高")
