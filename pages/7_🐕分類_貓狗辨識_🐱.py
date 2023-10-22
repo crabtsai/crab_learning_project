@@ -4,7 +4,6 @@ import numpy as np
 from tensorflow.keras.models import load_model
 import keras
 import tensorflow as tf
-
 from tensorflow.keras.optimizers import RMSprop
 
 opt = RMSprop()
@@ -19,11 +18,6 @@ MIN_LR = 1e-7
 MAX_LR = 1e-3
 CLR_METHOD = "triangular"
 
-clr = CyclicLR(
-    mode= CLR_METHOD,
-    base_lr= MIN_LR,
-    max_lr= MAX_LR,
-    step_size= steps_per_epoch)
 
 
 # Load the model with the custom layer, custom function, and custom optimizer
