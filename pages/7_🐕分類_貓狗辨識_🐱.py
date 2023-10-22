@@ -3,7 +3,7 @@ from skimage import io, transform
 import numpy as np
 import tensorflow as tf
 
-model = tf.keras.models.load_model('./model/cats_and_dogs_new_2.h5')
+model = tf.keras.saving.load_model('./model/cats_and_dogs_new_2.h5')
 
 st.title("上傳圖片(貓~狗)辨識")
 st.info("因訓練模型(VGG-16)輸入圖片為150*150，輸入圖片狗跟貓比例占比需高")
