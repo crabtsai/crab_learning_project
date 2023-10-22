@@ -4,12 +4,8 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.keras.optimizers import RMSprop
 
-# 定義自定義RMSprop
-class CustomRMSprop(RMSprop):
-    pass
-
 # 載入模型時使用custom_objects
-custom_objects = {'CustomRMSprop': CustomRMSprop}
+custom_objects = RMSprop()
 model = tf.keras.models.load_model('./model/cats_and_dogs_new_2.h5', custom_objects=custom_objects)
 
 st.title("上傳圖片(貓~狗)辨識")
