@@ -1,14 +1,14 @@
 import streamlit as st
 from skimage import io
-from skimage.transform import resize
 import numpy as np
-from tensorflow.keras.optimizers import RMSprop
 import tensorflow as tf
+from tensorflow.keras.optimizers import RMSprop
+
 # 定義自定義RMSprop
 class CustomRMSprop(RMSprop):
     pass
 
-# 在載入模型之前添加自定義優化器的定義
+# 載入模型時使用custom_objects
 custom_objects = {'CustomRMSprop': CustomRMSprop}
 model = tf.keras.models.load_model('./model/cats_and_dogs_new_2.h5', custom_objects=custom_objects)
 
@@ -17,7 +17,6 @@ st.info("因訓練模型(VGG-16)輸入圖片為150*150，輸入圖片狗跟貓�
 
 uploaded_file = st.file_uploader("上傳圖片(.png)", type=['png','jpg'])
 if uploaded_file is not None:
-    # 读取上传的图像并调整大小
     # 读取上传的图像并调整大小
     image = io.imread(uploaded_file)
     if image.shape[-1] == 4:  # 如果通道数为4，通常是带有alpha通道的图像
