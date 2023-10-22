@@ -1,19 +1,15 @@
-name: Your Workflow
+- name: Install dependencies
+  run: |
+    sudo apt-get update
+    sudo apt-get install -y libgl1-mesa-glx virtualgl
+    pip install -r requirements.txt  # 或者你的依賴安裝命令
 
-on:
-  push:
-    branches:
-      - main
+    # 安裝虛擬 GL 驅動程序
+    sudo apt-get install -y libgl1-nvidia-glx
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+    # 處理 libGL.so.1 缺失問題
+    sudo ln -s /usr/lib/x86_64-linux-gnu/libGL.so.1 /usr/lib/libGL.so.1
 
-    steps:
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.9
 
     - name: Install dependencies
       run: |
