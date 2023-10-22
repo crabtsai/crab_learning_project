@@ -4,6 +4,11 @@ from skimage.transform import resize
 import numpy as np
 import tensorflow as tf
 from ultralytics import YOLO
+from pyvirtualdisplay import Display
+
+# 创建虚拟显示
+display = Display(visible=0, size=(1400, 900))
+display.start()
 
 # 加载模型
 model = tf.keras.models.load_model('./model/yolov8n.pt')
@@ -31,3 +36,5 @@ if uploaded_file is not None:
         st.write(f"類別: {result[5]}, 置信度: {result[4]*100:.2f}%")
         st.image(result[0:4], caption="檢測結果", use_column_width=True)
 
+# 关闭虚拟显示
+display.stop()
