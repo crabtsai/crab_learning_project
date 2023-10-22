@@ -2,12 +2,15 @@ import streamlit as st
 from skimage import io
 from skimage.transform import resize
 import numpy as np
+from keras.optimizers import RMSprop
 import tensorflow as tf
-
+# 定義自定義RMSprop
+class CustomRMSprop(RMSprop):
+    pass
 
 # 在載入模型之前添加自定義優化器的定義
-
-model = tf.keras.models.load_model('./model/cats_and_dogs_new_2.h5')
+custom_objects = {'CustomRMSprop': CustomRMSprop}
+model = tf.keras.models.load_model('./model/cats_and_dogs_new_2.h5', custom_objects=custom_objects)
 
 st.title("上傳圖片(貓~狗)辨識")
 st.info("因訓練模型(VGG-16)輸入圖片為150*150，輸入圖片狗跟貓比例占比需高")
