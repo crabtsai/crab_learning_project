@@ -2,6 +2,7 @@ import streamlit as st
 from skimage import io
 from skimage.transform import resize
 import numpy as np
+from PIL import Image, ImageDraw  # 新增這一行
 from ultralytics import YOLO
 
 st.title("上傳圖片辨識")
@@ -27,10 +28,23 @@ if uploaded_file is not None:
         results = yolo.predict(image)  # 对图像进行预测
         # 显示检测结果
         st.subheader("檢測結果")
+        
+        # 新增這一行，用於在圖片上繪製檢測框
+        annotated_image = image.copy()  
+        draw = ImageDraw.Draw(annotated_image)
+        
         for result in results.xyxy[0]:
-            prit(result)
             st.write(f"類別: {result[5]}, 置信度: {result[4]*100:.2f}%")
-            st.image(result[0:4], caption="檢測結果", use_column_width=True)
+            
+            # 在圖片上繪製檢測框
+            box = tuple(map(int, result[0:4]))
+            draw.rectangle([box[0], box[1], box[2], box[3]], outline="red", width=2)
+            
+            # st.image(result[0:4], caption="檢測結果", use_column_width=True)  # 不再需要這行
+            
+        # 顯示標註後的圖片
+        st.image(annotated_image, caption="標註後的檢測結果", use_column_width=True)
+        
     except Exception as e:
         print(f"Error during prediction: {e}")
 
