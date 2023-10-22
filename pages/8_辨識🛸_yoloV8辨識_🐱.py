@@ -1,9 +1,8 @@
 import streamlit as st
 from skimage import io
-from skimage.transform import resize
 import numpy as np
-from PIL import Image, ImageDraw  # 新增這一行
 from ultralytics import YOLO
+import matplotlib.pyplot as plt  # 新增這一行
 
 st.title("上傳圖片辨識")
 st.info("訓練模型(YOLO_V8)")
@@ -26,19 +25,20 @@ if uploaded_file is not None:
         # 显示检测结果
         st.subheader("檢測結果")
         
-        # 新增這一行，用於在圖片上繪製檢測框
-        annotated_image = image.copy()  
-        draw = ImageDraw.Draw(annotated_image)
+        # 使用 matplotlib 繪製檢測框
+        fig, ax = plt.subplots()
+        ax.imshow(image)
         
         for result in results.xyxy[0]:
             st.write(f"類別: {result[5]}, 置信度: {result[4]*100:.2f}%")
             
-            # 在圖片上繪製檢測框
-            box = tuple(map(int, result[0:4]))
-            draw.rectangle([box[0], box[1], box[2], box[3]], outline="red", width=2)
-            
+            # 繪製檢測框
+            box = result[0:4]
+            rect = plt.Rectangle((box[0], box[1]), box[2]-box[0], box[3]-box[1], linewidth=1, edgecolor='r', facecolor='none')
+            ax.add_patch(rect)
+        
         # 顯示標註後的圖片
-        st.image(annotated_image, caption="標註後的檢測結果", use_column_width=True)
+        st.pyplot(fig)
         
     except Exception as e:
         print(f"Error during prediction: {e}")
