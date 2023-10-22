@@ -23,4 +23,4 @@ jobs:
 
     - name: Run your application
       run: |
-        python your_app_script.py
+        python ./page/8_辨識🛸_yoloV8辨識_🐱.py
