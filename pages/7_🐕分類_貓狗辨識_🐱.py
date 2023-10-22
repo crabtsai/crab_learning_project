@@ -1,15 +1,17 @@
 import streamlit as st
 from skimage import io, transform
 import numpy as np
-
-from tensorflow.keras.optimizers import RMSprop
-from custom_optimizer import CustomRMSprop
-
 import tensorflow as tf
-
-
-# Assuming CustomRMSprop is a custom implementation based on RMSprop
 from custom_optimizer import CustomRMSprop
+
+# Use it in your code
+custom_optimizer_instance = CustomRMSprop()
+
+# Load the model with the custom optimizer
+model = tf.keras.models.load_model('./model/cats_and_dogs_new_2.h5', custom_objects = custom_optimizer_instance)
+
+# Rest of your code...
+
 
 # Use it in your code
 custom_optimizer_instance = CustomRMSprop()
