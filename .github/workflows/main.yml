@@ -23,6 +23,12 @@ jobs:
       - name: Create symbolic link for libGL.so.1
         run: |
           sudo ln -s /usr/lib/x86_64-linux-gnu/libGL.so.1 /usr/lib/libGL.so.1
+          
+      - name: Install libgl1-mesa-glx
+        run: sudo apt-get install -y libgl1-mesa-glx
+      
+      - name: Install libgl1
+        run: sudo apt-get install -y libgl1
 
 
         
