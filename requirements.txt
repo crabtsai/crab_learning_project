@@ -11,4 +11,3 @@ catboost
 ultralytics
 tensorflow
 Pillow 
-libgl1-mesa-glx
