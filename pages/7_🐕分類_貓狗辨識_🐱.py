@@ -2,12 +2,21 @@ import streamlit as st
 from skimage import io, transform
 import numpy as np
 from tensorflow.optimizers.custom_optimizer import CustomRMSprop
+from tensorflow.keras.optimizers import RMSprop
 import tensorflow as tf
+
+# Assuming CustomRMSprop is a custom implementation based on RMSprop
+from custom_optimizer import CustomRMSprop
+
+# Use it in your code
+custom_optimizer_instance = CustomRMSprop()
+
+# Rest of your code...
 
 
 
 # Load the model with the custom optimizer
-model = tf.keras.models.load_model('./model/cats_and_dogs_new_2.h5', custom_objects={'CustomRMSprop': CustomRMSprop})
+model = tf.keras.models.load_model('./model/cats_and_dogs_new_2.h5', custom_optimizer_instance)
 
 st.title("上傳圖片(貓~狗)辨識")
 st.info("因訓練模型(VGG-16)輸入圖片為150*150，輸入圖片狗跟貓比例占比需高")
