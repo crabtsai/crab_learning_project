@@ -1,31 +1,26 @@
-- name: Install dependencies
-  run: |
-    sudo apt-get update
-    sudo apt-get install -y libgl1-mesa-glx virtualgl
-    pip install -r requirements.txt  # 或者你的依賴安裝命令
+name: Your Workflow
 
-    # 安裝虛擬 GL 驅動程序
-    sudo apt-get install -y libgl1-nvidia-glx
+on:
+  push:
+    branches:
+      - main
 
-    # 處理 libGL.so.1 缺失問題
-    sudo ln -s /usr/lib/x86_64-linux-gnu/libGL.so.1 /usr/lib/libGL.so.1
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
 
-- name: Install dependencies
-  run: |
-    sudo apt-get update
-    sudo apt-get install -y libgl1-mesa-glx
-    pip install -r requirements.txt  # 或者你的依賴安裝命令
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgl1-mesa-glx virtualgl libgl1-nvidia-glx
+          pip install -r requirements.txt
+          pip install tensorflow streamlit-drawable-canvas numpy==1.23.5 pandas==1.5.3 scikit-learn==1.2.2 tensorflow-cpu scikit-image joblib yfinance catboost ultralytics
 
-- name: Run your application
-  run: |
-    python ./pages/8_辨識🛸_yoloV8辨識_🐱.py
-    
-- name: Install dependencies
-  run: |
-    sudo apt-get update
-    sudo apt-get install -y libgl1-mesa-glx virtualgl
-    pip install -r requirements.txt  # 安裝 Python 相依性
-    pip install tensorflow  # 安裝 TensorFlow
-    pip install streamlit-drawable-canvas numpy==1.23.5 pandas==1.5.3 scikit-learn==1.2.2 tensorflow-cpu scikit-image joblib yfinance catboost ultralytics
-
+      - name: Run your application
+        run: python ./pages/8_辨識🛸_yoloV8辨識_🐱.py
