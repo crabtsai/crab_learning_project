@@ -8,4 +8,5 @@ scikit-image
 joblib
 yfinance
 catboost
+ultralytics
 
