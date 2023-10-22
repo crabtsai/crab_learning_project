@@ -23,6 +23,9 @@ class CustomLayer(keras.layers.Layer):
         sublayer_config = config.pop("sublayer")
         sublayer = keras.saving.deserialize_keras_object(sublayer_config)
         return cls(sublayer, **config)
+
+def custom_fn(x):
+    return x**2
 model = tf.keras.models.load_model('./model/cats_and_dogs_new_2.h5',   custom_objects={"CustomLayer": CustomLayer, "custom_fn": custom_fn}
 )
 
