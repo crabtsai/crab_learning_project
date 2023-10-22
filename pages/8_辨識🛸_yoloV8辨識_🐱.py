@@ -8,6 +8,20 @@ st.title("上傳圖片辨識")
 st.info("訓練模型(YOLO_V8)")
 
 uploaded_file = st.file_uploader("上傳圖片(.png)", type=['png', 'jpg'])
+colors_count = 0
+colors_rgb = {
+    '0': (255, 0, 0),
+    '1': (0, 255, 0),
+    '2': (0, 0, 255),
+    '3': (255, 255, 0),
+    '4': (128, 0, 128),
+    '5': (255, 165, 0),
+    '6': (0, 255, 255),
+    '7': (255, 182, 193),
+    '8': (165, 42, 42),
+    '9': (128, 128, 128),
+}
+colors_count =+1
 if uploaded_file is not None:
     # 读取上传的图像并调整大小
     image = io.imread(uploaded_file)
@@ -38,7 +52,7 @@ if uploaded_file is not None:
                 xyxy = box.xyxy[0]
                 result_str_1 = yolo.names[int(cls[0])]
                 result_str.append(result_str_1)
-                annotator.box_label(xyxy,yolo.names[int(cls[0])],(50,125,50))
+                annotator.box_label(xyxy,yolo.names[int(cls[0])],colors_rgb[f'{colors_count}'])
         img = annotator.result()
         # 顯示標註後的圖片
 
