@@ -27,8 +27,9 @@ if uploaded_file is not None:
 
     # 使用 YOLO 进行对象检测
     pretrained_weights_path('./model/yolov8n.pt')
+    yolo = YOLO()
     try:
-        yolo = YOLO(pretrained_weights_path)
+        yolo = yolo.load(pretrained_weights_path)
     except Exception as e:
         print(f"Error loading the model: {e}")
         raise  # Reraise the exception for more detailed information
