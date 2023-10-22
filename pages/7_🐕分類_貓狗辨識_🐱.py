@@ -3,18 +3,11 @@ from skimage import io, transform
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras.models import load_model
-from custom_optimizer import CustomLayer, custom_fn, CustomRMSprop
+import keras
 
 # Load the model with the custom layer, custom function, and custom optimizer
-model = load_model('./model/cats_and_dogs_new_2.h5', custom_objects={"CustomLayer": CustomLayer, "custom_fn": custom_fn, "CustomRMSprop": CustomRMSprop})
-
-# Rest of your code...
-
-# Use it in your code
-custom_optimizer_instance = CustomRMSprop()
-
-# Rest of your code...
-
+model = tf.contrib.keras.models.load_model('./model/cats_and_dogs_new_2.h5')
+=
 
 st.title("上傳圖片(貓~狗)辨識")
 st.info("因訓練模型(VGG-16)輸入圖片為150*150，輸入圖片狗跟貓比例占比需高")
