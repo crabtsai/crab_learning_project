@@ -15,9 +15,6 @@ if uploaded_file is not None:
     if image.shape[-1] == 4:  # 如果通道数为4，通常是带有alpha通道的图像
         image = image[:, :, :3]  # 去除alpha通道
     
-    # 显示原始上传图像
-    st.image(image, caption="上傳的圖像", use_column_width=True)
-
     # 使用 YOLO 进行对象检测
     pretrained_weights_path = './model/yolov8n.pt'
     
@@ -40,13 +37,10 @@ if uploaded_file is not None:
             box = tuple(map(int, result[0:4]))
             draw.rectangle([box[0], box[1], box[2], box[3]], outline="red", width=2)
             
-            # st.image(result[0:4], caption="檢測結果", use_column_width=True)  # 不再需要這行
-            
         # 顯示標註後的圖片
         st.image(annotated_image, caption="標註後的檢測結果", use_column_width=True)
         
     except Exception as e:
         print(f"Error during prediction: {e}")
-
 
 
