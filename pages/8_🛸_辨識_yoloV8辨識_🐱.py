@@ -7,8 +7,7 @@ from ultralytics.utils.plotting import Annotator
 st.title("上傳圖片辨識")
 st.info("YOLO_V8)， 80 個類別的物體檢測，這些類別包括人，動物，交通工具，家具等")
 
-uploaded_file = st.file_uploader("上傳圖片(.png)", type=['jpg', 'jpeg', 'png', 'gif'])
-colors_count = 0
+uploaded_file = st.file_uploader("上傳圖片", type=['jpg', 'jpeg', 'png', 'gif'])
 colors_rgb = {
     '0': (255, 0, 0),
     '1': (0, 255, 0),
@@ -38,7 +37,7 @@ if uploaded_file is not None:
         results = yolo.predict(image)  # 对图像进行预测
         # 显示检测结果
         st.subheader("檢測結果")
-        
+        colors_count = 0
         result_skr = None
         result_str = []
         # 顯示物件類別
