@@ -4,6 +4,7 @@ import numpy as np
 from ultralytics import YOLO
 import matplotlib.pyplot as plt  # 新增這一行
 from ultralytics.utils.plotting import Annotator
+from PIL import Image #1024
 st.title("上傳圖片辨識")
 st.info("YOLO_V8)， 80 個類別的物體檢測，這些類別包括人，動物，交通工具，家具等")
 
@@ -11,8 +12,9 @@ uploaded_file = st.file_uploader("上傳圖片", type=['jpg', 'jpeg', 'png', 'gi
 colors_rgb = {str(i): ((i * 30) % 256, (i * 50) % 256, (i * 70) % 256) for i in range(30)}
 
 if uploaded_file is not None:
-   
-    image = io.imread(uploaded_file)
+      
+   #image = io.imread(uploaded_file)
+    image = Image.open(uploaded_file).rotate_exif()
     if image.shape[-1] == 4:  # 如果通道数为4，通常是带有alpha通道的图像
         image = image[:, :, :3]  # 去除alpha通道
     
