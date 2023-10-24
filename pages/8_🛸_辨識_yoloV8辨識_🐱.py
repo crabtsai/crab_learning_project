@@ -13,8 +13,8 @@ colors_rgb = {str(i): ((i * 30) % 256, (i * 50) % 256, (i * 70) % 256) for i in 
 
 if uploaded_file is not None:
       
-   #image = io.imread(uploaded_file)
-    image = Image.open(uploaded_file)
+    image = io.imread(uploaded_file)
+    #image = Image.open(uploaded_file)
     if image.shape[-1] == 4:  # 如果通道数为4，通常是带有alpha通道的图像
         image = image[:, :, :3]  # 去除alpha通道
     
