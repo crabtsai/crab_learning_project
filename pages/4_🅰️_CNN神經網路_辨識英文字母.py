@@ -12,7 +12,7 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.models import model_from_json
 
 # 模型載入
-model = tf.keras.models.load_model('./model/ABC.h5')
+model = tf.keras.models.load_model('./model/ABC.h5',compile = False)
 st.title('Crab_A~Z辨識')
 col1, col2 = st.columns(2)
 
