@@ -5,6 +5,7 @@ from ultralytics import YOLO
 import matplotlib.pyplot as plt  # 新增這一行
 from ultralytics.utils.plotting import Annotator
 from PIL import Image #1024
+
 st.title("上傳圖片辨識")
 st.info("YOLO_V8)， 80 個類別的物體檢測，這些類別包括人，動物，交通工具，家具等")
 
@@ -14,22 +15,18 @@ colors_rgb = {str(i): ((i * 30) % 256, (i * 50) % 256, (i * 70) % 256) for i in 
 if uploaded_file is not None:
       
     image = io.imread(uploaded_file)
-    #image = Image.open(uploaded_file)
-    if image.shape[-1] == 4:  # 如果通道数为4，通常是带有alpha通道的图像
+    if image.shape[-1] == 4:  # 如果通道數為4，通常是带有alpha通道的圖像
         image = image[:, :, :3]  # 去除alpha通道
     
-    # 使用 YOLO 进行对象检测
+    # 載入模型
     pretrained_weights_path = './model/yolov8n.pt'
-    
     yolo = YOLO()
     yolo = yolo.load(pretrained_weights_path)
     try:
-        # 這裡可能不需要再次加載權重，因為上面已經在構造函數中指定了
-        results = yolo.predict(image)  # 对图像进行预测
-        # 显示检测结果
+        results = yolo.predict(image)  #預測指令
+        # 顯示結果
         st.subheader("檢測結果")
         colors_count = 0
-        result_skr = None
         result_str = []
         # 顯示物件類別
         print(results[0].boxes.cls)
@@ -46,7 +43,6 @@ if uploaded_file is not None:
                 colors_count += 1
         img = annotator.result()
         # 顯示標註後的圖片
-
         st.image(img, caption="檢測結果", use_column_width=True)
         st.write(result_str)
         
