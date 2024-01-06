@@ -23,7 +23,7 @@ Vgg16 = keras.models.load_model('./model/cats_and_dogs_new_2.h5', compile=False)
 Vgg16.compile(optimizer=opt, loss='categorical_crossentropy', metrics=['accuracy', lr_track, keras.metrics.Precision(), keras.metrics.Recall()])
 
 st.title("上傳圖片(貓~狗)辨識")
-st.info("因訓練模型(VGG-16)輸入圖片為150*150，輸入圖片狗跟貓比例占比需高")
+st.info("因訓練模型(VGG-16)輸入圖片為150*150，輸入圖片狗跟貓比例需高")
 
 uploaded_file = st.file_uploader("上傳圖片(.png)", type=['png', 'jpg'])
 if uploaded_file is not None:
@@ -35,7 +35,7 @@ if uploaded_file is not None:
     image_resized = transform.resize(image, (150, 150))  # 調整為150x150的大小
 
     # 預處理圖像並進行預測
-    input_image = image_resized[np.newaxis, ...]  # 添加批次維度
+    input_image = image_resized[np.newaxis, ...]  
     predictions = Vgg16.predict(input_image)
     predicted_class = np.argmax(predictions[0])
     print("模型已加載")
@@ -47,7 +47,6 @@ if uploaded_file is not None:
     else:
         st.markdown("### 這是一隻狗", unsafe_allow_html=True)
     
-    # 添加分隔線
     st.markdown("---")
 
     # 顯示原始上傳圖像
