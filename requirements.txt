@@ -17,6 +17,6 @@ pyvirtualdisplay==2.2
 PyOpenGL==3.1.5
 sympy
 setuptools
-matplotlib==4.1.0
+matplotlib
 keras
 numpy
