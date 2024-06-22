@@ -1,3 +1,4 @@
+numpy
 streamlit-drawable-canvas
 pandas==1.5.3
 scikit-learn==1.2.2
@@ -10,7 +11,6 @@ catboost
 ultralytics==8.0.227
 Pillow 
 torch==1.10.0  # 根据你的 PyTorch 版本需求进行调整
-numpy
 opencv-python-headless
 requests==2.28.1
 streamlit
