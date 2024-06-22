@@ -7,7 +7,7 @@ scikit-image
 joblib
 yfinance
 catboost
-ultralytics
+ultralytics==8.0.227
 Pillow 
 torch==1.10.0  # 根据你的 PyTorch 版本需求进行调整
 numpy
