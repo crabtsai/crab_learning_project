@@ -1,4 +1,5 @@
 numpy>=1.23
+imageio>=2.33
 scikit-image
 streamlit-drawable-canvas
 pandas>=1.5.3
