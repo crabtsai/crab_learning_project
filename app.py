@@ -5,6 +5,8 @@ import numpy as np
 import joblib
 import base64
 
+# 這樣如果報錯，網頁會顯示比較詳細的 Traceback
+st.set_page_config(page_title="Debug Mode")
 # def get_image_html(page_name, file_name):
 #     with open(file_name, "rb") as f:
 #         contents = f.read()
@@ -157,3 +159,4 @@ with col5:
         ''')
     # st.image('taxi.png')
     # st.markdown(data_url_5, unsafe_allow_html=True)
+
