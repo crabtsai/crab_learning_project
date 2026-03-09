@@ -1,21 +1,52 @@
-numpy==1.26.4
-streamlit
+# 基礎數值與工具
+numpy<2.0.0
 pandas>=1.5.3
-scikit-learn>=1.2.2
-scikit-image>=0.19.2
 joblib
-yfinance
-catboost
-ultralytics==8.1.1
-# 修正重點：移除 9.0.0，讓系統自動抓取相容 Python 3.13 的版本
-Pillow>=10.0.0
-torch
-opencv-python-headless
 requests==2.28.1
-streamlit-drawable-canvas
-protobuf==3.20.*
-tensorflow-cpu>=2.17.0
 sympy
 matplotlib
+
+# AI 框架 (不鎖定 protobuf 版本，讓系統自動協調)
+ultralytics==8.1.1
+torch
+tensorflow-cpu>=2.18.0
 keras
+catboost
+
+# 影像處理 (移除 Pillow 版本限制)
+opencv-python-headless
+scikit-learn>=1.2.2
+scikit-image>=0.19.2
+Pillow
+
+# Streamlit 相關
+streamlit
+streamlit-drawable-canvas
+
+# 移除這行，它是萬惡之源
+# protobuf==3.20.* ```
+
+---
+
+### 🚀 為什麼這樣改會通？
+
+* **自動協調 Protobuf**：刪除 `protobuf==3.20.*` 後，`pip` 會自動安裝與 TensorFlow 2.18+ 相容的 `protobuf 5.x` 或 `6.x`。
+* **針對 Python 3.13 優化**：Python 3.13 要求較新的套件版本才有編譯好的 Wheel 檔。放開 `Pillow` 和 `TensorFlow` 的舊版本限制，能讓雲端伺服器直接下載現成的檔案，不必現場辛苦編譯（避免你之前遇到的 `KeyError: '__version__'`）。
+* **處理 Numpy 2.0 衝擊**：最近 Numpy 出了 2.0 大版本，很多 AI 套件會壞掉，所以加上 `numpy<2.0.0` 確保穩定。
+
+
+
+---
+
+### 💡 接下來該怎麼做？
+
+1.  **修改 GitHub**：更新 `requirements.txt` 為上方我提供的內容。
+2.  **砍掉重練**：因為剛才安裝失敗留下了很多混亂的暫存。請在 Streamlit Cloud 介面：
+    * 點擊 **"Manage App"**。
+    * 選擇 **"Delete App"**。
+    * 重新點擊 **"New App"** 進行部署。
+3.  **觀察 Log**：如果看到 `Collecting ...` 的速度變快了，就代表我們跳過了編譯地獄。
+
+**目前的 Log 顯示 `pip` 正在瘋狂往回找舊版的 `yfinance` 和 `streamlit`，這是因為它想配合那個死掉的 `protobuf`。改完之後，這個循環應該就會停止。你要現在試試看嗎？**
+
 
