@@ -1,26 +1,22 @@
+# 先安裝這個，確保環境中已有 OpenCV
+opencv-python-headless
+
+# 再安裝其他套件
+ultralytics==8.1.1
+streamlit
 numpy==1.26.4
-streamlit-drawable-canvas
 pandas>=1.5.3
 scikit-learn>=1.2.2
 scikit-image
-protobuf==3.20
-tensorflow-cpu>=2.7.0
-scikit-image>=0.19.2
+protobuf==3.20.3
+tensorflow-cpu>=2.8.0
 joblib
 yfinance
 catboost
-ultralytics==8.1.1
 Pillow==9.0.0
 torch>=1.8.0
-
-opencv-python-headless
 requests==2.28.1
-streamlit
-pyvirtualdisplay==2.2
-PyOpenGL==3.1.5
-sympy
-setuptools
+streamlit-drawable-canvas
 matplotlib
-keras
 
 
