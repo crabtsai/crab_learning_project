@@ -18,7 +18,13 @@ try:
     torch.serialization.add_safe_globals([DetectionModel])
 except Exception:
     pass
-
+# 2. 如果系統找不到 libgthread，嘗試動態加載一個通用的 glib
+# 這是一個小撇步，有時能讓 Python 內部機制跳過檢查
+try:
+    import ctypes
+    ctypes.CDLL('libgthread-2.0.so.0', mode=os.RTLD_GLOBAL)
+except Exception:
+    pass
 import streamlit as st
 st.title("上傳圖片辨識")
 st.info("YOLO_V8)， 80 個類別的物體檢測，這些類別包括人，動物，交通工具，家具等")
@@ -62,6 +68,7 @@ if uploaded_file is not None:
         
     except Exception as e:
         print(f"Error during prediction: {e}")
+
 
 
 
