@@ -3,7 +3,7 @@ streamlit-drawable-canvas
 pandas>=1.5.3
 scikit-learn>=1.2.2
 scikit-image
-protobuf>=3.20
+protobuf==3.20
 tensorflow-cpu>=2.7.0
 scikit-image>=0.19.2
 joblib
@@ -12,6 +12,7 @@ catboost
 ultralytics==8.1.1
 Pillow==9.0.0
 torch>=1.8.0
+
 opencv-python-headless
 requests==2.28.1
 streamlit
@@ -21,4 +22,5 @@ sympy
 setuptools
 matplotlib
 keras
+
 
