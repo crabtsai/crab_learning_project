@@ -44,45 +44,48 @@ uploaded_file = st.file_uploader("上傳圖片", type=['jpg', 'jpeg', 'png', 'gi
 colors_rgb = {str(i): ((i * 30) % 256, (i * 50) % 256, (i * 70) % 256) for i in range(30)}
 
 if uploaded_file is not None:
-      
     image = io.imread(uploaded_file)
-    if image.shape[-1] == 4:  # 如果通道數為4，通常是带有alpha通道的圖像
-        image = image[:, :, :3]  # 去除alpha通道
+    if image.shape[-1] == 4:
+        image = image[:, :, :3]
+    
+    # 【關鍵修正 1】確保記憶體連續，否則 Annotator 會報錯
+    image = np.ascontiguousarray(image)
 
     # 載入模型
     pretrained_weights_path = './model/yolov8n.pt'
-    yolo = YOLO()
-    yolo = yolo.load(pretrained_weights_path)
+    yolo = YOLO(pretrained_weights_path) # 建議直接載入，更簡潔
+    
     try:
-        results = yolo.predict(image)  #預測指令
-        # 顯示結果
+        results = yolo.predict(image)
         st.subheader("檢測結果")
-        colors_count = 0
+        
+        # 【關鍵修正 2】Annotator 應該放在迴圈外面，不然每一框都會蓋掉前一框
+        annotator = Annotator(image)
+        
         result_str = []
-        # 顯示物件類別
-        print(results[0].boxes.cls)
-        # # print()
-        for i, result in enumerate(results):
-            annotator = Annotator(image)
+        colors_count = 0
+        
+        for result in results:
             boxes = result.boxes
             for box in boxes:
-                cls = box.cls
+                cls = int(box.cls[0])
                 xyxy = box.xyxy[0]
-                result_str_1 = yolo.names[int(cls[0])]
-                result_str.append(result_str_1)
-                annotator.box_label(xyxy,yolo.names[int(cls[0])],colors_rgb[f'{colors_count}'])
+                label = yolo.names[cls]
+                result_str.append(label)
+                
+                # 繪製標籤
+                annotator.box_label(xyxy, label, colors_rgb.get(str(colors_count), (255, 0, 0)))
                 colors_count += 1
-        img = annotator.result()
-        # 顯示標註後的圖片
-        st.image(img, caption="檢測結果", use_column_width=True)
-        st.write(result_str)
+        
+        # 取得標註後的圖片 (BGR 轉 RGB)
+        img_result = annotator.result()
+        
+        # 顯示圖片
+        st.image(img_result, caption="檢測結果", use_container_width=True)
+        st.write(f"偵測到物品: {', '.join(result_str)}")
         
     except Exception as e:
-        print(f"Error during prediction: {e}")
-
-
-
-
+        st.error(f"預測過程中發生錯誤: {e}")
 
 
 
