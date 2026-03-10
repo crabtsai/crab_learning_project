@@ -1,5 +1,5 @@
 # 先安裝這個，確保環境中已有 OpenCV
-opencv-python-headless
+opencv-python-headless==4.8.0.74
 
 # 再安裝其他套件
 ultralytics==8.1.1
@@ -18,5 +18,6 @@ torch>=1.8.0
 requests==2.28.1
 streamlit-drawable-canvas
 matplotlib
+
 
 
