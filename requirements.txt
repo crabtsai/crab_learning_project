@@ -14,10 +14,12 @@ joblib
 yfinance
 catboost
 Pillow==9.0.0
-torch>=1.8.0
+# torch>=1.8.0
+torch==2.4.1
 requests==2.28.1
 streamlit-drawable-canvas
 matplotlib
+
 
 
 
