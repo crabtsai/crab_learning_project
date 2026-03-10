@@ -5,7 +5,14 @@ from ultralytics import YOLO
 import matplotlib.pyplot as plt  # 新增這一行
 from ultralytics.utils.plotting import Annotator
 from PIL import Image #1024
+#新增20260310
+import os
+import sys
 
+# 強制告訴環境我們不需要 GUI
+os.environ["QT_QPA_PLATFORM"] = "offscreen"
+
+import streamlit as st
 st.title("上傳圖片辨識")
 st.info("YOLO_V8)， 80 個類別的物體檢測，這些類別包括人，動物，交通工具，家具等")
 
@@ -48,4 +55,5 @@ if uploaded_file is not None:
         
     except Exception as e:
         print(f"Error during prediction: {e}")
+
 
