@@ -12,6 +12,13 @@ import sys
 # 強制告訴環境我們不需要 GUI
 os.environ["QT_QPA_PLATFORM"] = "offscreen"
 
+# 【核心修正】告訴 PyTorch 許可 Ultralytics 的自定義類別
+try:
+    from ultralytics.nn.tasks import DetectionModel
+    torch.serialization.add_safe_globals([DetectionModel])
+except Exception:
+    pass
+
 import streamlit as st
 st.title("上傳圖片辨識")
 st.info("YOLO_V8)， 80 個類別的物體檢測，這些類別包括人，動物，交通工具，家具等")
@@ -24,7 +31,7 @@ if uploaded_file is not None:
     image = io.imread(uploaded_file)
     if image.shape[-1] == 4:  # 如果通道數為4，通常是带有alpha通道的圖像
         image = image[:, :, :3]  # 去除alpha通道
-    
+
     # 載入模型
     pretrained_weights_path = './model/yolov8n.pt'
     yolo = YOLO()
@@ -55,5 +62,6 @@ if uploaded_file is not None:
         
     except Exception as e:
         print(f"Error during prediction: {e}")
+
 
 
