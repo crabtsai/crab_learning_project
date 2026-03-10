@@ -9,6 +9,17 @@ from PIL import Image #1024
 import os
 import sys
 
+# 自動安裝缺失的系統庫 (針對 Streamlit Cloud 環境)
+def install_packages():
+    try:
+        # 嘗試檢查是否有 libGL，若無則嘗試用 pip 補救或提醒
+        import cv2
+    except ImportError:
+        # 強制重新安裝 headless 版本確保路徑正確
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "opencv-python-headless", "--force-reinstall"])
+
+# 執行安裝
+install_packages()
 # 強制告訴環境我們不需要 GUI
 os.environ["QT_QPA_PLATFORM"] = "offscreen"
 
@@ -68,6 +79,7 @@ if uploaded_file is not None:
         
     except Exception as e:
         print(f"Error during prediction: {e}")
+
 
 
 
