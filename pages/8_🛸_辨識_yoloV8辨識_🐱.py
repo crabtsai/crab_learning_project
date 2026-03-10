@@ -11,7 +11,8 @@ import sys
 
 # 強制告訴環境我們不需要 GUI
 os.environ["QT_QPA_PLATFORM"] = "offscreen"
-
+# 嘗試模擬系統環境
+os.environ["LD_LIBRARY_PATH"] = "/usr/lib/x86_64-linux-gnu:" + os.environ.get("LD_LIBRARY_PATH", "")
 # 【核心修正】告訴 PyTorch 許可 Ultralytics 的自定義類別
 try:
     from ultralytics.nn.tasks import DetectionModel
@@ -68,6 +69,7 @@ if uploaded_file is not None:
         
     except Exception as e:
         print(f"Error during prediction: {e}")
+
 
 
 
